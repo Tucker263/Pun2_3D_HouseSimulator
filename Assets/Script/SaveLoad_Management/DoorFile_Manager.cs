@@ -9,7 +9,7 @@ using System.IO;
 [System.Serializable] // JSON化するにはSerializable属性が必要
 public class DoorInfo
 {
-    public string name; //ここの名前が被るとうまくロードができなくなるので注意
+    public string placeName; //場所の名前
     public bool isOpen;
     public Quaternion rotation;
     public string materialName;
@@ -25,24 +25,16 @@ public static class DoorFile_Manager
         string saveTag = "door";
         List<GameObject> objList = NetworkObject_Search.GetListFromTag(saveTag);
 
-        for(int i = 0; i < objList.Count; i++)
+        for (int i = 0; i < objList.Count; i++)
         {
             GameObject obj = objList[i];
-            Door_OpenClose d_o = obj.GetComponent<Door_OpenClose>();
-            Renderer renderer = obj.GetComponent<Renderer>();
-
-            //ドアの情報を取得
-            DoorInfo door = new DoorInfo();
-            door.name = obj.name;
-            door.isOpen = d_o.GetIsOpen();
-            door.rotation = obj.GetComponent<Transform>().rotation;
-            string materialName = renderer.material.name;
-            door.materialName = materialName.Replace(" (Instance)", "");
+            //DoorInfoに変換
+            DoorInfo door = Convert(obj);
 
             //JSONに変換
             string jsonData = JsonUtility.ToJson(door);
 
-            string fileName = saveTag + (i+1) + ".json";
+            string fileName = saveTag + (i + 1) + ".json";
             string filePath = Path.Combine(directoryPath, fileName);
             //ファイルに保存
             File.WriteAllText(filePath, jsonData);
@@ -59,24 +51,43 @@ public static class DoorFile_Manager
         foreach (string jsonData in jsonList)
         {
             //JSONをC#のオブジェクトに変換
-            DoorInfo door = JsonUtility.FromJson<DoorInfo>(jsonData);
+            DoorInfo info = JsonUtility.FromJson<DoorInfo>(jsonData);
             //ネットワークオブジェクト化したhouseからdoorを手に入れる
-            GameObject obj = NetworkObject_Search.GetObjectFromTagAndName(loadTag, door.name);
-      
-            Renderer renderer = obj.GetComponent<Renderer>();
-            obj.name = door.name;
+            GameObject obj = NetworkObject_Search.GetObjectFromTagAndName(loadTag, info.placeName);
+
+            obj.name = info.placeName;
             //ドアの開閉状態を適用
             Door_OpenClose d_o = obj.GetComponent<Door_OpenClose>();
-            d_o.SetIsOpen(door.isOpen);
+            d_o.SetIsOpen(info.isOpen);
             //ドアの回転を適用
-            obj.GetComponent<Transform>().rotation = door.rotation;
+            obj.GetComponent<Transform>().rotation = info.rotation;
             //Resourcesフォルダ内のマテリアルをロード
-            Material material = Resources.Load<Material>("Materials/"+ door.materialName);
+            Renderer renderer = obj.GetComponent<Renderer>();
+            Material material = Resources.Load<Material>("Materials/" + info.materialName);
             //ロードしたマテリアルをオブジェクトに適用
             renderer.material = material;
-             
+
         }
 
+    }
+
+    public static DoorInfo Convert(GameObject obj)
+    {
+        DoorInfo info = new DoorInfo();
+
+        info.placeName = obj.name;
+        //開閉状態
+        Door_OpenClose d_o = obj.GetComponent<Door_OpenClose>();
+        info.isOpen = d_o.GetIsOpen();
+        //rotation
+        info.rotation = obj.GetComponent<Transform>().rotation;
+        //マテリアル
+        Renderer renderer = obj.GetComponent<Renderer>();
+        string materialName = renderer.material.name;
+        info.materialName = materialName.Replace(" (Instance)", "");
+
+        return info;
+        
     }
 
 }

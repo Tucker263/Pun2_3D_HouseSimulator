@@ -69,7 +69,6 @@ public static class TransformFile_Manager
             obj_tf.position = info.position;
             obj_tf.rotation = info.rotation;
 
-
             return;
         }
 
