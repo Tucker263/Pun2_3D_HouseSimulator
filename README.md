@@ -1,2 +1,2 @@
-# Pun2_3D_Sample
-Pun2のサンプルプログラム
+# Pun2_3D_HouseSimulator
+Pun2を用いたインテリアとエクステリアのデザインシミュレーション
