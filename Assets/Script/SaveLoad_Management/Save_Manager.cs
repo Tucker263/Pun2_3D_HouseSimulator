@@ -48,7 +48,7 @@ public static class Save_Manager
         //ドアのセーブ処理
         DoorInfo_Manager.Save(directoryPath);
         //照明のセーブ処理
-        LightingFile_Manager.Save(directoryPath);  
+        LightingInfo_Manager.Save(directoryPath);  
         
         //house_smallの情報のセーブ処理
         HouseSmallFile_Manager.Save(directoryPath);
