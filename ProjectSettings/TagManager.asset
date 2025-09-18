@@ -17,8 +17,8 @@ TagManager:
   - floor
   - ceiling
   - structure
-  - vr_camera
   - menubar_ui
+  - camera_rig
   layers:
   - Default
   - TransparentFX

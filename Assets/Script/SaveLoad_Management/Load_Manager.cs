@@ -37,7 +37,7 @@ public static class Load_Manager
         //VR用カメラ、太陽、家具のロード処理
         List<string> transformTagList = new List<string>()
         {
-            "vr_camera",
+            "camera_rig",
             "sun",
             "furniture"
         };

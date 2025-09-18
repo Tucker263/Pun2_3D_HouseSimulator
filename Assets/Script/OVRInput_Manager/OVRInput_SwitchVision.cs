@@ -12,7 +12,7 @@ public class OVRInput_SwitchVision : MonoBehaviour
     void Start()
     {
         mainCamera = NetworkObject_Search.GetObjectFromName("Main_Camera");
-        fppCamera = NetworkObject_Search.GetObjectFromName("FPP_Camera");
+        fppCamera = GameObject.Find("FPP_Camera");
 
         mainCamera.SetActive(false);
 

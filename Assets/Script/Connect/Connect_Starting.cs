@@ -50,7 +50,7 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
         ovrObj = GameObject.Find("OVRInput_Manager");
         directionalLight = GameObject.Find("Directional_Light");
 
-        CameraRig = NetworkObject_Search.GetObjectFromTag("vr_camera");
+        CameraRig = GameObject.FindWithTag("camera_rig");
         CameraRig_tf = CameraRig.GetComponent<Transform>();
 
         //メニューバーを非アクティブ化

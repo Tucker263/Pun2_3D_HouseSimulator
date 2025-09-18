@@ -21,28 +21,32 @@ public static class TransformFile_Manager
     {
         //{saveTag}.jsonのような形式で保存
         List<GameObject> objList = NetworkObject_Search.GetListFromTag(saveTag);
-
-        for(int i = 0; i < objList.Count; i++)
+        if (saveTag == "camera_rig")
         {
-            GameObject obj = objList[i];
-            string objName = obj.name;
-            objName = objName.Replace("(Clone)", "");
-
-            //Transform情報を取得
-            TransformInfo info = new TransformInfo();
-            info.name = objName;
-            info.position = obj.GetComponent<Transform>().position;
-            info.rotation = obj.GetComponent<Transform>().rotation;
-
-            //JSONに変換
-            string jsonData = JsonUtility.ToJson(info);
-
-            string fileName = saveTag + (i+1) + ".json";
-            string filePath = Path.Combine(directoryPath, fileName);
-            //ファイルに保存
-            File.WriteAllText(filePath, jsonData);
-
+            objList.Add(GameObject.FindWithTag(saveTag));
         }
+
+        for (int i = 0; i < objList.Count; i++)
+            {
+                GameObject obj = objList[i];
+                string objName = obj.name;
+                objName = objName.Replace("(Clone)", "");
+
+                //Transform情報を取得
+                TransformInfo info = new TransformInfo();
+                info.name = objName;
+                info.position = obj.GetComponent<Transform>().position;
+                info.rotation = obj.GetComponent<Transform>().rotation;
+
+                //JSONに変換
+                string jsonData = JsonUtility.ToJson(info);
+
+                string fileName = saveTag + (i + 1) + ".json";
+                string filePath = Path.Combine(directoryPath, fileName);
+                //ファイルに保存
+                File.WriteAllText(filePath, jsonData);
+
+            }
         
     }
 
@@ -52,7 +56,7 @@ public static class TransformFile_Manager
         //{loadTag}.jsonのような形式を読み込み
         List<string> jsonList = ReadAllFilesOfJSON(directoryPath, loadTag);
 
-        if(loadTag == "vr_camera" || loadTag == "sun")
+        if(loadTag == "camera_rig" || loadTag == "sun")
         {
 
             string jsonData = jsonList[0];
@@ -61,6 +65,10 @@ public static class TransformFile_Manager
 
             //Transformの情報を適用
             GameObject obj = NetworkObject_Search.GetObjectFromTag(loadTag);
+            if (loadTag == "camera_rig")
+            {
+                obj = GameObject.FindWithTag(loadTag);
+            }
             obj.name = info.name;
             Transform obj_tf = obj.GetComponent<Transform>();
             obj_tf.position = info.position;
