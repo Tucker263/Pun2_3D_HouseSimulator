@@ -26,7 +26,7 @@ public static class TransformFile_Manager
             objList.Add(GameObject.FindWithTag(saveTag));
         }
 
-        //JSONリストに変換
+        //JSONのリストに変換
         List<string> jsonList = new List<string>();
         foreach (GameObject obj in objList)
         {
@@ -34,7 +34,7 @@ public static class TransformFile_Manager
             obj.name = objName.Replace("(Clone)", "");
 
             //TransformInfoに変換
-            TransformInfo info = ConvertFromObject(obj);
+            TransformInfo info = Convert(obj);
 
             //JSONに変換
             string jsonData = JsonUtility.ToJson(info);
@@ -64,7 +64,11 @@ public static class TransformFile_Manager
             {
                 obj = GameObject.FindWithTag(loadTag);
             }
-            ApplyObject(obj, info);
+            obj.name = info.name;
+            Transform obj_tf = obj.GetComponent<Transform>();
+            obj_tf.position = info.position;
+            obj_tf.rotation = info.rotation;
+
 
             return;
         }
@@ -81,8 +85,8 @@ public static class TransformFile_Manager
 
     }
 
-    
-    public static TransformInfo ConvertFromObject(GameObject obj)
+
+    public static TransformInfo Convert(GameObject obj)
     {
         TransformInfo info = new TransformInfo();
         info.name = obj.name;
@@ -90,16 +94,6 @@ public static class TransformFile_Manager
         info.rotation = obj.GetComponent<Transform>().rotation;
 
         return info;
-    }
-    
-
-    public static void ApplyObject(GameObject obj, TransformInfo info)
-    {
-        obj.name = info.name;
-        Transform obj_tf = obj.GetComponent<Transform>();
-        obj_tf.position = info.position;
-        obj_tf.rotation = info.rotation;
-
     }
   
 }

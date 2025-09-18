@@ -19,29 +19,22 @@ public static class MaterialFile_Manager
 
     public static void Save(string directoryPath, string saveTag)
     {
-        //{saveTag}.jsonのような形式で保存
         List<GameObject> objList = NetworkObject_Search.GetListFromTag(saveTag);
 
-        for(int i = 0; i < objList.Count; i++)
+        //JSONのリストに変換
+        List<string> jsonList = new List<string>();
+        foreach (GameObject obj in objList)
         {
-            GameObject obj = objList[i];
-
-            Renderer renderer = obj.GetComponent<Renderer>();
-            //マテリアルの情報を取得
-            MaterialInfo info = new MaterialInfo();
-            info.placeName = obj.name;
-            string materialName = renderer.material.name;
-            info.materialName = materialName.Replace(" (Instance)", "");
+            //MaterialInfoに変換
+            MaterialInfo info = Convert(obj);
 
             //JSONに変換
             string jsonData = JsonUtility.ToJson(info);
-
-            string fileName = saveTag + (i+1) + ".json";
-            string filePath = Path.Combine(directoryPath, fileName);
-            //ファイルに保存
-            File.WriteAllText(filePath, jsonData);
-
+            jsonList.Add(jsonData);
         }
+
+        //JSONデータをセーブ
+        JsonFile_Manager.Save(directoryPath, saveTag, jsonList);
 
     }
 
@@ -54,17 +47,27 @@ public static class MaterialFile_Manager
         {
             //JSONをC#のオブジェクトに変換
             MaterialInfo info = JsonUtility.FromJson<MaterialInfo>(jsonData);
-            //loadTagのオブジェクトを手に入れる
+            //loadTagのオブジェクトを取得
             GameObject obj = NetworkObject_Search.GetObjectFromTagAndName(loadTag, info.placeName);
-         
+            //マテリアルの情報を適用
             Renderer renderer = obj.GetComponent<Renderer>();
-            //Resourcesフォルダ内のマテリアルをロード
-            Material material = Resources.Load<Material>("Materials/"+ info.materialName);
-            //ロードしたマテリアルをオブジェクトに適用
+            Material material = Resources.Load<Material>("Materials/" + info.materialName);
             renderer.material = material;
-              
+
         }
 
     }
+    
+    public static MaterialInfo Convert(GameObject obj)
+    {
+        MaterialInfo info = new MaterialInfo();
+        info.placeName = obj.name;
 
+        Renderer renderer = obj.GetComponent<Renderer>();
+        string materialName = renderer.material.name;
+        info.materialName = materialName.Replace(" (Instance)", "");
+
+        return info;
+    }
+    
 }
