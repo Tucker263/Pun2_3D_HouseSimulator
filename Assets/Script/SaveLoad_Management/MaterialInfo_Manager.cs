@@ -5,16 +5,7 @@ using UnityEngine;
 using System.IO;
 
 
-//マテリアルの情報
-[System.Serializable] // JSON化するにはSerializable属性が必要
-public class MaterialInfo
-{
-    public string placeName; //場所の名前
-    public string materialName; //マテリアルの名前
-}
-
-
-public static class MaterialFile_Manager
+public static class MaterialInfo_Manager
 {
 
     public static void Save(string directoryPath, string saveTag)
@@ -26,7 +17,7 @@ public static class MaterialFile_Manager
         foreach (GameObject obj in objList)
         {
             //MaterialInfoに変換
-            MaterialInfo info = Convert(obj);
+            MaterialInfo info = MaterialInfo_Format.Convert(obj);
 
             //JSONに変換
             string jsonData = JsonUtility.ToJson(info);
@@ -50,29 +41,9 @@ public static class MaterialFile_Manager
             //loadTagのオブジェクトを取得
             GameObject obj = NetworkObject_Search.GetObjectFromTagAndName(loadTag, info.placeName);
             //マテリアルの情報を適用
-            ApplyObject(obj, info);
+            MaterialInfo_Format.ApplyObject(obj, info);
 
         }
-
-    }
-
-    public static MaterialInfo Convert(GameObject obj)
-    {
-        MaterialInfo info = new MaterialInfo();
-        info.placeName = obj.name;
-
-        Renderer renderer = obj.GetComponent<Renderer>();
-        string materialName = renderer.material.name;
-        info.materialName = materialName.Replace(" (Instance)", "");
-
-        return info;
-    }
-
-    public static void ApplyObject(GameObject obj, MaterialInfo info)
-    {
-        Renderer renderer = obj.GetComponent<Renderer>();
-        Material material = Resources.Load<Material>("Materials/" + info.materialName);
-        renderer.material = material;
 
     }
     

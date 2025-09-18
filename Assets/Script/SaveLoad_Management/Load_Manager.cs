@@ -43,7 +43,7 @@ public static class Load_Manager
         };
         foreach(string tag in transformTagList)
         {
-            TransformFile_Manager.Load(directoryPath, tag);
+            TransformInfo_Manager.Load(directoryPath, tag);
         }
 
 
@@ -59,7 +59,7 @@ public static class Load_Manager
         };
         foreach(string tag in materialTagList)
         {
-            MaterialFile_Manager.Load(directoryPath, tag);
+            MaterialInfo_Manager.Load(directoryPath, tag);
         }
 
 

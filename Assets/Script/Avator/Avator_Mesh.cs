@@ -40,7 +40,7 @@ public class Avator_Mesh : MonoBehaviourPunCallbacks
         isMine =  photonView.IsMine;
 
         //CameraRigを取得
-        cameraRig = GameObject.Find("CameraRig");
+        cameraRig = GameObject.FindWithTag("camera_rig");
         cameraRig_tf = cameraRig.GetComponent<Transform>();
 
         avator_tf = GetComponent<Transform>();

@@ -15,11 +15,6 @@ public class Wall_Collision : MonoBehaviour
     {
         isCollision = false;
     }
-
-    void Update()
-    {
-        
-    }
     
     //物体が当たった時の処理
     void OnCollisionEnter(Collision collision)

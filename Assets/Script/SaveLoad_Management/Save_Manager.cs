@@ -25,7 +25,7 @@ public static class Save_Manager
         };
         foreach(string tag in transformTagList)
         {
-            TransformFile_Manager.Save(directoryPath, tag);
+            TransformInfo_Manager.Save(directoryPath, tag);
         }
 
 
@@ -41,7 +41,7 @@ public static class Save_Manager
         };
         foreach(string tag in materialTagList)
         {
-            MaterialFile_Manager.Save(directoryPath, tag);
+            MaterialInfo_Manager.Save(directoryPath, tag);
         }
 
 

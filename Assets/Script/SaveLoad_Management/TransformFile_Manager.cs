@@ -5,17 +5,7 @@ using UnityEngine;
 using System.IO;
 
 
-//Transformの情報
-[System.Serializable] // JSON化するにはSerializable属性が必要
-public class TransformInfo
-{
-    public string name;
-    public Vector3 position;
-    public Quaternion rotation;
-}
-
-
-public static class TransformFile_Manager
+public static class TransformInfo_Manager
 {
 
     public static void Save(string directoryPath, string saveTag)
@@ -34,7 +24,7 @@ public static class TransformFile_Manager
             obj.name = objName.Replace("(Clone)", "");
 
             //TransformInfoに変換
-            TransformInfo info = Convert(obj);
+            TransformInfo info = TransformInfo_Format.Convert(obj);
 
             //JSONに変換
             string jsonData = JsonUtility.ToJson(info);
@@ -64,10 +54,7 @@ public static class TransformFile_Manager
             {
                 obj = GameObject.FindWithTag(loadTag);
             }
-            obj.name = info.name;
-            Transform obj_tf = obj.GetComponent<Transform>();
-            obj_tf.position = info.position;
-            obj_tf.rotation = info.rotation;
+            TransformInfo_Format.ApplyObject(obj, info);
 
             return;
         }
@@ -82,17 +69,6 @@ public static class TransformFile_Manager
 
         }
 
-    }
-
-
-    public static TransformInfo Convert(GameObject obj)
-    {
-        TransformInfo info = new TransformInfo();
-        info.name = obj.name;
-        info.position = obj.GetComponent<Transform>().position;
-        info.rotation = obj.GetComponent<Transform>().rotation;
-
-        return info;
     }
   
 }

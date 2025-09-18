@@ -15,8 +15,8 @@ public class MaterialInfo_Synchronize : MonoBehaviourPunCallbacks
         List<GameObject> objList = NetworkObject_Search.GetListFromTag(targetTag);
         foreach(GameObject obj in objList)
         {
-            //マテリアルの情報を取得
-            MaterialInfo info = MaterialFile_Manager.Convert(obj);
+            //MaterialInfoに変換
+            MaterialInfo info = MaterialInfo_Format.Convert(obj);
             //JSONに変換してRPC通信
             string jsonData = JsonUtility.ToJson(info);
             photonView.RPC("ReflectMaterial", RpcTarget.Others, targetTag, jsonData);
@@ -33,7 +33,7 @@ public class MaterialInfo_Synchronize : MonoBehaviourPunCallbacks
         //同期するタグと名前の両方が一致しているオブジェクトを探す
         GameObject obj = NetworkObject_Search.GetObjectFromTagAndName(targetTag, info.placeName);
         //マテリアルの情報を適用
-        MaterialFile_Manager.ApplyObject(obj, info);
+        MaterialInfo_Format.ApplyObject(obj, info);
 
     }
 
