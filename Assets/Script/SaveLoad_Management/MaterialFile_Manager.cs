@@ -48,7 +48,7 @@ public static class MaterialFile_Manager
 
     public static void Load(string directoryPath, string loadTag)
     {
-        List<string> jsonList = ReadAllFilesOfJSON(directoryPath, loadTag);
+        List<string> jsonList = JsonFile_Manager.Load(directoryPath, loadTag);
 
         foreach (string jsonData in jsonList)
         {
@@ -67,32 +67,4 @@ public static class MaterialFile_Manager
 
     }
 
-
-    private static List<string> ReadAllFilesOfJSON(string directoryPath, string loadTag)
-    {
-        //フォルダ内の全ての"{loadTag}.json"を読み込む
-        //フォルダ内は"{loadTag}.json"という形式で順に保存されている
-
-        List<string> jsonList = new List<string>();
-        int index = 1;
-        while (true)
-        {
-            string fileName = loadTag + index + ".json";
-            string filePath = Path.Combine(directoryPath, fileName);
-            // ファイルが存在するか確認
-            if (File.Exists(filePath))
-            {
-                // ファイルからJSONデータを読み込む
-                string jsonData = File.ReadAllText(filePath);
-                jsonList.Add(jsonData);
-            }
-            else
-            {
-                break;
-            }
-            index++;
-        }
-
-        return jsonList;
-    }
 }

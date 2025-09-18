@@ -12,23 +12,23 @@ public class MovedObject_Generator : MonoBehaviourPunCallbacks
 {
     private string objName;
 
-    private GameObject vrCamera;
-    private Transform vrCamera_tf;
+    private GameObject cameraRig;
+    private Transform cameraRig_tf;
     
     void Start()
     {
         TextMeshProUGUI buttonTMP = GetComponentInChildren<TextMeshProUGUI>();
         objName = buttonTMP.text;
 
-        vrCamera = NetworkObject_Search.GetObjectFromTag("vr_camera");
-        vrCamera_tf = vrCamera.GetComponent<Transform>();
+        cameraRig = GameObject.FindWithTag("camera_rig");
+        cameraRig_tf = cameraRig.GetComponent<Transform>();
     }
 
 
     public void Generate()
     {
         //VR用カメラの目の前に生成
-        var position = new Vector3(vrCamera_tf.position.x, 2, vrCamera_tf.position.z + 3);
+        var position = new Vector3(cameraRig_tf.position.x, 2, cameraRig_tf.position.z + 3);
         Quaternion rotation = Quaternion.Euler(0, 90, 0);
 
         PhotonNetwork.Instantiate(objName, position, rotation);
