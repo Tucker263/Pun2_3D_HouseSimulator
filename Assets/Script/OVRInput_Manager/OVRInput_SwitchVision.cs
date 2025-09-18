@@ -7,20 +7,14 @@ using UnityEngine;
 public class OVRInput_SwitchVision : MonoBehaviour
 {
     private GameObject mainCamera;
-    private GameObject vrCamera;
+    private GameObject fppCamera;
 
     void Start()
     {
-        //非アクティブ状態だとオブジェクトを取得できないので、Transformで取得
-        GameObject parentObj = GameObject.Find("Tracking_Camera");
-        Transform parent_tf= parentObj.transform;
+        mainCamera = NetworkObject_Search.GetObjectFromName("Main_Camera");
+        fppCamera = NetworkObject_Search.GetObjectFromName("FPP_Camera");
 
-        //MainCameraを取得
-        Transform main_tf = parent_tf.Find("Main_Camera");
-        mainCamera = main_tf.gameObject;
-        //VRCameraを取得
-        Transform vr_tf = parent_tf.Find("VR_Camera");
-        vrCamera = vr_tf.gameObject;
+        mainCamera.SetActive(false);
 
     }
 
@@ -36,7 +30,7 @@ public class OVRInput_SwitchVision : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return))
         {
             mainCamera.SetActive(!mainCamera.activeSelf);
-            vrCamera.SetActive(!vrCamera.activeSelf);
+            fppCamera.SetActive(!fppCamera.activeSelf);
 
         }
         

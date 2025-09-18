@@ -9,17 +9,17 @@ public class OVRInput_Move : MonoBehaviour
     //移動速度
     private float speed;
 
-    //VR用カメラ
-    private GameObject vrCamera;
-    private Transform vrCamera_tf;
+    //CameraRig
+    private GameObject cameraRig;
+    private Transform cameraRig_tf;
 
 
     void Start()
     {
         speed = 6f;
 
-        vrCamera = NetworkObject_Search.GetObjectFromTag("vr_camera");
-        vrCamera_tf = vrCamera.GetComponent<Transform>();
+        cameraRig = NetworkObject_Search.GetObjectFromTag("vr_camera");
+        cameraRig_tf = cameraRig.GetComponent<Transform>();
 
     }
 
@@ -34,7 +34,7 @@ public class OVRInput_Move : MonoBehaviour
     public void Move()
     {    
 
-        Transform obj_tf = vrCamera_tf;
+        Transform obj_tf = cameraRig_tf;
 
         //移動処理
         var input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));

@@ -14,8 +14,8 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
     private GameObject menuObj;
     private GameObject ovrObj;
 
-    private GameObject vrCamera;
-    private Transform vrCamera_tf;
+    private GameObject CameraRig;
+    private Transform CameraRig_tf;
 
 
     public void Connect()
@@ -50,8 +50,8 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
         ovrObj = GameObject.Find("OVRInput_Manager");
         directionalLight = GameObject.Find("Directional_Light");
 
-        vrCamera = NetworkObject_Search.GetObjectFromTag("vr_camera");
-        vrCamera_tf = vrCamera.GetComponent<Transform>();
+        CameraRig = NetworkObject_Search.GetObjectFromTag("vr_camera");
+        CameraRig_tf = CameraRig.GetComponent<Transform>();
 
         //メニューバーを非アクティブ化
         menuObj.SetActive(false);
@@ -93,7 +93,7 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
         PhotonNetwork.NickName = PhotonNetwork.IsMasterClient ? "Host" : "Guest";
         //VR用カメラを初期位置に設置
         var position = new Vector3(Random.Range(-8, 8), 2, Random.Range(-17, -10));
-        vrCamera_tf.position = position;
+        CameraRig_tf.position = position;
 
 
         //マスタークライアントのみ、データのロード処理

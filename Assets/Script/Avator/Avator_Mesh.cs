@@ -11,8 +11,8 @@ public class Avator_Mesh : MonoBehaviourPunCallbacks
     private int creatorID;
     private bool isMine;
    
-    private GameObject vrCamera;
-    private Transform vrCamera_tf;
+    private GameObject cameraRig;
+    private Transform cameraRig_tf;
     private Transform avator_tf;
 
     void Start()
@@ -27,8 +27,8 @@ public class Avator_Mesh : MonoBehaviourPunCallbacks
         {
             //アバターのメッシュをVR用カメラの動きと同期させる
             avator_tf = GetComponent<Transform>();
-            avator_tf.position = vrCamera_tf.position;
-            avator_tf.rotation = vrCamera_tf.rotation;
+            avator_tf.position = cameraRig_tf.position;
+            avator_tf.rotation = cameraRig_tf.rotation;
         }
 
     }
@@ -39,13 +39,9 @@ public class Avator_Mesh : MonoBehaviourPunCallbacks
         creatorID = photonView.CreatorActorNr;
         isMine =  photonView.IsMine;
 
-        //非アクティブ状態だとオブジェクトを取得できないので、Transformで取得
-        GameObject parentObj = GameObject.Find("Tracking_Camera");
-        Transform parent_tf= parentObj.transform;
-        Transform child_tf = parent_tf.Find("VR_Camera");
-
-        vrCamera = child_tf.gameObject;
-        vrCamera_tf = vrCamera.GetComponent<Transform>();
+        //CameraRigを取得
+        cameraRig = GameObject.Find("CameraRig");
+        cameraRig_tf = cameraRig.GetComponent<Transform>();
 
         avator_tf = GetComponent<Transform>();
 
