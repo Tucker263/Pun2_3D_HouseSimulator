@@ -9,26 +9,26 @@ public class Transform_Position : MonoBehaviour
 {
     public Vector3 position;
 
-    private GameObject vrCamera;
-    private Transform vrCamera_tf;
+    private GameObject cameraRig;
+    private Transform cameraRig_tf;
   
 
     public void SetInitProperty()
     {      
-        vrCamera = NetworkObject_Search.GetObjectFromTag("vr_camera");
-        vrCamera_tf = vrCamera.GetComponent<Transform>();
+        cameraRig = GameObject.FindWithTag("camera_rig");
+        cameraRig_tf = cameraRig.GetComponent<Transform>();
 
     }
 
 
     public void Move()
     {
-        if(vrCamera == null)
+        if(cameraRig == null)
         {
             SetInitProperty();
         }
         
-        vrCamera_tf.position = position;
+        cameraRig_tf.position = position;
         //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
         EventSystem.current.SetSelectedGameObject(null);
 
