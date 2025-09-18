@@ -4,6 +4,7 @@ using Photon.Pun;
 using UnityEngine;
 using System.IO;
 
+
 //Transformの情報
 [System.Serializable] // JSON化するにはSerializable属性が必要
 public class TransformInfo
@@ -30,13 +31,10 @@ public static class TransformFile_Manager
         foreach (GameObject obj in objList)
         {
             string objName = obj.name;
-            objName = objName.Replace("(Clone)", "");
+            obj.name = objName.Replace("(Clone)", "");
 
-            //Transform情報を取得
-            TransformInfo info = new TransformInfo();
-            info.name = objName;
-            info.position = obj.GetComponent<Transform>().position;
-            info.rotation = obj.GetComponent<Transform>().rotation;
+            //TransformInfoに変換
+            TransformInfo info = ConvertFromObject(obj);
 
             //JSONに変換
             string jsonData = JsonUtility.ToJson(info);
@@ -66,10 +64,7 @@ public static class TransformFile_Manager
             {
                 obj = GameObject.FindWithTag(loadTag);
             }
-            obj.name = info.name;
-            Transform obj_tf = obj.GetComponent<Transform>();
-            obj_tf.position = info.position;
-            obj_tf.rotation = info.rotation;
+            ApplyObject(obj, info);
 
             return;
         }
@@ -83,7 +78,28 @@ public static class TransformFile_Manager
             PhotonNetwork.Instantiate(info.name, info.position, info.rotation);
 
         }
-        
+
+    }
+
+    
+    public static TransformInfo ConvertFromObject(GameObject obj)
+    {
+        TransformInfo info = new TransformInfo();
+        info.name = obj.name;
+        info.position = obj.GetComponent<Transform>().position;
+        info.rotation = obj.GetComponent<Transform>().rotation;
+
+        return info;
+    }
+    
+
+    public static void ApplyObject(GameObject obj, TransformInfo info)
+    {
+        obj.name = info.name;
+        Transform obj_tf = obj.GetComponent<Transform>();
+        obj_tf.position = info.position;
+        obj_tf.rotation = info.rotation;
+
     }
   
 }
