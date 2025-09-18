@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using Photon.Pun;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
+public class SmallHouse_Disapear : MonoBehaviour
+{
+    private GameObject house_small;
+
+    void Start()
+    {
+        Set_House_Small();
+
+    }
+
+
+    public void Disappear()
+    {
+        PhotonView photonView = PhotonView.Get(this);
+        photonView.RPC("Disappear_RPC", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void Disappear_RPC()
+    {
+        if (house_small == null)
+        {
+            Set_House_Small();
+        }
+        if (house_small.activeSelf)
+        {
+            house_small.SetActive(false);
+        }
+    }
+
+    private void Set_House_Small()
+    {
+        house_small = NetworkObject_Search.GetObjectFromTag("house_small");
+
+        //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
+        EventSystem.current.SetSelectedGameObject(null);
+        
+    }
+    
+}

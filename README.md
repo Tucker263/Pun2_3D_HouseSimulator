@@ -1,1 +1,2 @@
-# Pun2_3D_HouseSimulator
+# Pun2_3D_Sample
+Pun2のサンプルプログラム
