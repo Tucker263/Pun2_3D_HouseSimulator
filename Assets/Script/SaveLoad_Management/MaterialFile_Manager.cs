@@ -50,14 +50,12 @@ public static class MaterialFile_Manager
             //loadTagのオブジェクトを取得
             GameObject obj = NetworkObject_Search.GetObjectFromTagAndName(loadTag, info.placeName);
             //マテリアルの情報を適用
-            Renderer renderer = obj.GetComponent<Renderer>();
-            Material material = Resources.Load<Material>("Materials/" + info.materialName);
-            renderer.material = material;
+            ApplyObject(obj, info);
 
         }
 
     }
-    
+
     public static MaterialInfo Convert(GameObject obj)
     {
         MaterialInfo info = new MaterialInfo();
@@ -68,6 +66,14 @@ public static class MaterialFile_Manager
         info.materialName = materialName.Replace(" (Instance)", "");
 
         return info;
+    }
+
+    public static void ApplyObject(GameObject obj, MaterialInfo info)
+    {
+        Renderer renderer = obj.GetComponent<Renderer>();
+        Material material = Resources.Load<Material>("Materials/" + info.materialName);
+        renderer.material = material;
+
     }
     
 }

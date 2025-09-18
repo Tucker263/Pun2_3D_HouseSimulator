@@ -34,20 +34,8 @@ public class Door_Synchronize : MonoBehaviourPunCallbacks
         DoorInfo info = JsonUtility.FromJson<DoorInfo>(jsonData);
         //doorタグと名前の両方が一致しているオブジェクトを探す
         GameObject obj = NetworkObject_Search.GetObjectFromTagAndName("door", info.placeName);
-
-        //名前が被るとうまく反映ができなくなるので注意
-        obj.name = info.placeName;
-        //開閉状態を反映
-        Door_OpenClose d_o = obj.GetComponent<Door_OpenClose>();
-        d_o.SetIsOpen(info.isOpen);
-        //rotationを反映
-        obj.GetComponent<Transform>().rotation = info.rotation;
-
-        //マテリアルを適用
-        Renderer renderer = obj.GetComponent<Renderer>();
-        //Resourcesフォルダ内のマテリアルをロード
-        Material material = Resources.Load<Material>("Materials/" + info.materialName);
-        renderer.material = material; 
+        //ドアの情報を適用
+        DoorFile_Manager.ApplyObject(obj, info);
    
     }
 

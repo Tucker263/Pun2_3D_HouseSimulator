@@ -54,18 +54,8 @@ public static class DoorFile_Manager
             DoorInfo info = JsonUtility.FromJson<DoorInfo>(jsonData);
             //ネットワークオブジェクト化したhouseからdoorを手に入れる
             GameObject obj = NetworkObject_Search.GetObjectFromTagAndName(loadTag, info.placeName);
-
-            obj.name = info.placeName;
-            //ドアの開閉状態を適用
-            Door_OpenClose d_o = obj.GetComponent<Door_OpenClose>();
-            d_o.SetIsOpen(info.isOpen);
-            //ドアの回転を適用
-            obj.GetComponent<Transform>().rotation = info.rotation;
-            //Resourcesフォルダ内のマテリアルをロード
-            Renderer renderer = obj.GetComponent<Renderer>();
-            Material material = Resources.Load<Material>("Materials/" + info.materialName);
-            //ロードしたマテリアルをオブジェクトに適用
-            renderer.material = material;
+            //ドアの情報を適用
+            ApplyObject(obj, info);
 
         }
 
@@ -87,7 +77,23 @@ public static class DoorFile_Manager
         info.materialName = materialName.Replace(" (Instance)", "");
 
         return info;
-        
+
+    }
+
+    public static void ApplyObject(GameObject obj, DoorInfo info)
+    {
+        obj.name = info.placeName;
+        //ドアの開閉状態を適用
+        Door_OpenClose d_o = obj.GetComponent<Door_OpenClose>();
+        d_o.SetIsOpen(info.isOpen);
+        //ドアの回転を適用
+        obj.GetComponent<Transform>().rotation = info.rotation;
+        //Resourcesフォルダ内のマテリアルをロード
+        Renderer renderer = obj.GetComponent<Renderer>();
+        Material material = Resources.Load<Material>("Materials/" + info.materialName);
+        //ロードしたマテリアルをオブジェクトに適用
+        renderer.material = material;
+
     }
 
 }
