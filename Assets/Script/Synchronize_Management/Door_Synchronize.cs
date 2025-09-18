@@ -17,7 +17,7 @@ public class Door_Synchronize : MonoBehaviourPunCallbacks
         foreach(GameObject obj in doorList)
         {
             //DoorInfoに変換
-            DoorInfo info = DoorFile_Manager.Convert(obj);
+            DoorInfo info = DoorInfo_Format.Convert(obj);
             //JSONに変換してRPC通信
             string jsonData = JsonUtility.ToJson(info);
             photonView.RPC("ReflectDoor", RpcTarget.Others, jsonData);
@@ -35,7 +35,7 @@ public class Door_Synchronize : MonoBehaviourPunCallbacks
         //doorタグと名前の両方が一致しているオブジェクトを探す
         GameObject obj = NetworkObject_Search.GetObjectFromTagAndName("door", info.placeName);
         //ドアの情報を適用
-        DoorFile_Manager.ApplyObject(obj, info);
+        DoorInfo_Format.ApplyObject(obj, info);
    
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 
 //マテリアルの情報の同期を行うクラス
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
-public class MaterialInfo_Synchronize : MonoBehaviourPunCallbacks
+public class Material_Synchronize : MonoBehaviourPunCallbacks
 {
    
     public void Synchronize(string targetTag)

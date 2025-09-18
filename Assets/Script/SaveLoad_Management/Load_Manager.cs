@@ -64,7 +64,7 @@ public static class Load_Manager
 
 
         //ドアのロード処理
-        DoorFile_Manager.Load(directoryPath);
+        DoorInfo_Manager.Load(directoryPath);
         //照明のロード処理
         LightingFile_Manager.Load(directoryPath);
         //house_smallの情報のロード処理

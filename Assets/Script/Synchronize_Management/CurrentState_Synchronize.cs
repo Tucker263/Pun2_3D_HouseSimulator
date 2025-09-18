@@ -22,7 +22,7 @@ public class CurrentState_Synchronize : MonoBehaviourPunCallbacks
         e_r.Synchronize();
 
         //天井、内壁、床、外壁、屋根の同期
-        MaterialInfo_Synchronize m_s = GetComponent<MaterialInfo_Synchronize>();
+        Material_Synchronize m_s = GetComponent<Material_Synchronize>();
         List<string> materialTag = new List<string>()
         {
             "ceiling", 
