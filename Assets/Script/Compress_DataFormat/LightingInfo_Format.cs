@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Photon.Pun;
 using UnityEngine;
-using System.IO;
-
+using TMPro;
 
 
 //照明の情報
@@ -39,28 +36,21 @@ public static class LightingInfo_Format
 
     public static void ApplyObject(GameObject obj, LightingInfo info)
     {
-        Light light = obj.GetComponent<Light>();
-        TMP_Text tmp = obj.GetComponent<TMP_Text>();
+        Light targetLight = obj.GetComponent<Light>();
+        TMP_Text targetTMP = obj.GetComponent<TMP_Text>();
 
-        //Resourcesフォルダ内の照明の種類をロードして変更
-        ChangeLightKind(light, info.lightKind);
-
-        //lightのその他の情報を書き換え
-        tmp.text = info.lightKind;
-        light.enabled = info.enabled;
-        light.intensity = info.intensity;
-    }
-    
-
-
-    private static void ChangeLightKind(Light targetLight, string lightKind)
-    {
         //Resourcesフォルダ内のコピー元のオブジェクトをロード
-        GameObject sourceObj = Resources.Load<GameObject>("Lights/" + lightKind);
+        GameObject sourceObj = Resources.Load<GameObject>("Lights/" + info.lightKind);
         //コピー元のlight
         Light sourceLight = sourceObj.GetComponent<Light>();
         //Lightのプロパティーを全てコピー
         LightCopier.CopyLightProperties(sourceLight, targetLight);
 
+        //lightのその他の情報を書き換え
+        targetLight.name = info.placeName;
+        targetLight.enabled = info.enabled;
+        targetLight.intensity = info.intensity;
+        targetTMP.text = info.lightKind;
     }
+
 }
