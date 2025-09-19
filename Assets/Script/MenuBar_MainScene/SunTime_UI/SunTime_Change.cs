@@ -11,7 +11,7 @@ public class SunTime_Change : MonoBehaviourPunCallbacks
     private GameObject sun;
     private Slider slider;
     private Transform sun_tf;
-    private Sun_Ownership sun_Ownership;
+    private Sun_Ownership s_o;
 
 
     public void SetInitProperty()
@@ -21,7 +21,7 @@ public class SunTime_Change : MonoBehaviourPunCallbacks
 
         slider = GetComponent<Slider>();
         sun_tf = sun.GetComponent<Transform>();
-        sun_Ownership = sun.GetComponent<Sun_Ownership>();
+        s_o = sun.GetComponent<Sun_Ownership>();
 
     }
 
@@ -33,8 +33,8 @@ public class SunTime_Change : MonoBehaviourPunCallbacks
             SetInitProperty();
         }
         //所有権の譲渡がないと、他の人が触っても位置の同期できない
-        sun_Ownership.Change();
-        float sunRotateX = slider.value;
-        sun_tf.eulerAngles = new Vector3(sunRotateX, 0, 0);
+        s_o.Change();
+        float rotateX = slider.value;
+        sun_tf.eulerAngles = new Vector3(rotateX, 0, 0);
     }
 }
