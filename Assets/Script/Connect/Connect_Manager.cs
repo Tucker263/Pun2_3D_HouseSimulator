@@ -26,11 +26,6 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         Debug.Log("TitleSceneへ戻ります");
         Config.currentScene = "TitleScene";
         SceneManager.LoadScene("TitleScene");
-
-        if(PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.Destroy(this.gameObject);
-        }
         
     }
 

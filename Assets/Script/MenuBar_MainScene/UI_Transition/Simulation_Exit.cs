@@ -21,6 +21,11 @@ public class Simulation_Exit : MonoBehaviourPunCallbacks
             //プレイヤー全員をキック処理
             KickOtherAllClients();
         }
+        if(Config.isOfflineMode)
+        {
+            PhotonNetwork.Disconnect();
+            return;
+        }
         PhotonNetwork.LeaveRoom();
     }
 

@@ -4,5 +4,5 @@ public static class Config
     public static string directoryName = "SampleDirectory"; //セーブデータ名
     public static bool isInitialStart = true; //始めから
     public static bool isOfflineMode = false; //オフラインモード
-    public static string currentScene = "MainScene";
+    public static string currentScene = "MainScene"; //現在のシーン
 }

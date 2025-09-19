@@ -25,7 +25,7 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
         //どのクライアントも、キックされる処理ができるように設定
         PhotonNetwork.EnableCloseConnection = true;
 
-        //オフラインモードの場合
+        //オフラインモード
         if(Config.isOfflineMode)
         {
             Debug.Log("オフラインモード");
@@ -36,7 +36,7 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
             return;
         }
 
-        //オンラインモードの場合
+        //オンラインモード
         //PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         Debug.Log("オンラインモード");
         Debug.Log("マスターサーバーへの接続開始");
@@ -67,6 +67,11 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
     // マスターサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnConnectedToMaster()
     {
+        //オフラインモード時、TitleSceneに戻っても、この関数が呼ばれるため、処理を終わらせる
+        if(Config.currentScene == "TitleScene")
+        {
+            return;
+        }
 
         Debug.Log("マスターサーバーの接続成功");
         //参加可能人数を3人に設定
@@ -78,12 +83,6 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
         // roomNameというルームに参加する（ルームが存在しなければ作成して参加する）
         string roomName = Config.roomName;
         Debug.Log(roomName + "への接続開始");
-
-        if(Config.currentScene == "TitleScene")
-        {
-            PhotonNetwork.Disconnect();
-            return;
-        }
        
         PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
     }
@@ -147,21 +146,13 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
 
     }
 
-    //ルームの作成に失敗した時に呼ばれるコールバック
-    public void OnCreateRoomFailed(short returnCode, string message)
-    {
-        Debug.Log("ルームの作成に失敗しました");
-        PhotonNetwork.Disconnect();
-        Debug.Log("TitleSceneへ戻ります");
-        SceneManager.LoadScene("TitleScene");
-    }
-
     //ルームへの参加が失敗した時に呼ばれるコールバック
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         Debug.Log("ルームへの参加が失敗しました");
         PhotonNetwork.Disconnect();
         Debug.Log("TitleSceneへ戻ります");
+        Config.currentScene = "TitleScene";
         SceneManager.LoadScene("TitleScene");
     }
 
