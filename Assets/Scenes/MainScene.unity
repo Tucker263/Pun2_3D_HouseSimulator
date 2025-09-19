@@ -8752,7 +8752,7 @@ GameObject:
   - component: {fileID: 778115446}
   - component: {fileID: 778115445}
   - component: {fileID: 778115444}
-  - component: {fileID: 778115443}
+  - component: {fileID: 778115448}
   m_Layer: 5
   m_Name: Destroy_Button
   m_TagString: Untagged
@@ -8780,18 +8780,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -45}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &778115443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778115441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e8266019f12a748a30b9a214883f28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &778115444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8858,9 +8846,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 778115443}
-        m_TargetAssemblyTypeName: Lighting_Decide, Assembly-CSharp
-        m_MethodName: Decide
+      - m_Target: {fileID: 778115448}
+        m_TargetAssemblyTypeName: PlacedObject_Destroy, Assembly-CSharp
+        m_MethodName: Destroy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8908,6 +8896,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778115441}
   m_CullTransparentMesh: 1
+--- !u!114 &778115448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778115441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8bfc265d8acf6458e8dd2b8a3ddc50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &778165302
 GameObject:
   m_ObjectHideFlags: 0

@@ -52,4 +52,10 @@ public class PlacedObject_Ownership : MonoBehaviourPunCallbacks
 
     }
 
+
+    public void Change()
+    {
+        photonView.RequestOwnership();
+    }
+
 }
