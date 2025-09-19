@@ -1569,7 +1569,7 @@ GameObject:
   - component: {fileID: 147197945}
   - component: {fileID: 147197948}
   - component: {fileID: 147197947}
-  - component: {fileID: 147197946}
+  - component: {fileID: 147197949}
   m_Layer: 5
   m_Name: Rotation_Slider
   m_TagString: Untagged
@@ -1599,18 +1599,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &147197946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147197944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b9a92a38e18c84298089e87925b492, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &147197947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,15 +1666,15 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1903299793}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 7
+  m_MaxValue: 360
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 180
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 147197946}
-        m_TargetAssemblyTypeName: Light_Intensity_Change, Assembly-CSharp
-        m_MethodName: Change
+      - m_Target: {fileID: 147197949}
+        m_TargetAssemblyTypeName: PlacedObject_RotateY, Assembly-CSharp
+        m_MethodName: RotateY
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1696,6 +1684,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &147197949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147197944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585babcff46163245ad509728055edcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &147253903
 GameObject:
   m_ObjectHideFlags: 0
