@@ -24,7 +24,6 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         Debug.Log("部屋から退出しました");
         PhotonNetwork.Disconnect();
         Debug.Log("TitleSceneへ戻ります");
-        Config.currentScene = "TitleScene";
         SceneManager.LoadScene("TitleScene");
         
     }

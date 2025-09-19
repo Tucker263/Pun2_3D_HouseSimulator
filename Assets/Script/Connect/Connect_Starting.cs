@@ -31,7 +31,7 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
             Debug.Log("オフラインモード");
             //元からあるライトを非アクティブ化
             directionalLight.SetActive(false);
-            //即座にOnConnectedToMaster()が呼ばれる
+            //すぐにOnConnectedToMaster()が呼ばれる
             PhotonNetwork.OfflineMode = true;
             return;
         }
@@ -67,11 +67,6 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
     // マスターサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnConnectedToMaster()
     {
-        //オフラインモード時、TitleSceneに戻っても、この関数が呼ばれるため、処理を終わらせる
-        if(Config.currentScene == "TitleScene")
-        {
-            return;
-        }
 
         Debug.Log("マスターサーバーの接続成功");
         //参加可能人数を3人に設定
@@ -152,7 +147,6 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
         Debug.Log("ルームへの参加が失敗しました");
         PhotonNetwork.Disconnect();
         Debug.Log("TitleSceneへ戻ります");
-        Config.currentScene = "TitleScene";
         SceneManager.LoadScene("TitleScene");
     }
 

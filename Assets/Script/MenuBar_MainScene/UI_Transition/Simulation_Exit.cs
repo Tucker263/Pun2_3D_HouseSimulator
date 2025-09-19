@@ -21,12 +21,15 @@ public class Simulation_Exit : MonoBehaviourPunCallbacks
             //プレイヤー全員をキック処理
             KickOtherAllClients();
         }
+        
+        //オフラインモード時、すぐに切断
         if(Config.isOfflineMode)
         {
             PhotonNetwork.Disconnect();
             return;
         }
         PhotonNetwork.LeaveRoom();
+
     }
 
 
@@ -41,6 +44,7 @@ public class Simulation_Exit : MonoBehaviourPunCallbacks
             Debug.Log(otherPlayers[i] + "をキックしました");
         }
         Debug.Log("他クライアントのキック処理完了");
+        
     }
     
 }
