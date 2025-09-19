@@ -24,23 +24,30 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         Debug.Log("部屋から退出しました");
         PhotonNetwork.Disconnect();
         Debug.Log("TitleSceneへ戻ります");
+        Config.currentScene = "TitleScene";
         SceneManager.LoadScene("TitleScene");
+
+        if(PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Destroy(this.gameObject);
+        }
+        
     }
 
 
     //他の人が退出した時に、avator(ネットワークオブジェクト)を破棄
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
-        List<GameObject> avatorList = NetworkObject_Search.GetListFromTag("avator");
+        List<GameObject> objList = NetworkObject_Search.GetListFromTag("avator");
         //avatorの配列から退出するプレイヤーのavatorを削除
-        foreach (GameObject avator in avatorList)
+        foreach (GameObject obj in objList)
         {
-            Avator_Mesh a_m = avator.GetComponent<Avator_Mesh>();
+            Avator_Mesh a_m = obj.GetComponent<Avator_Mesh>();
             //他の人が退出すると、所有権がマスタークライアントに移るため、マスタークライアントが削除できる
             //自分がマスタークライアントで、マスタークライアント以外の生産者だったら、プレイヤーオブジェクトを削除
             if (PhotonNetwork.IsMasterClient && a_m.GetCreatorID() != 1)
             {
-                PhotonNetwork.Destroy(avator);
+                PhotonNetwork.Destroy(obj);
             }
 
         }

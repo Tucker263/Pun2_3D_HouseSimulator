@@ -53,6 +53,7 @@ public class Simulation_launch : MonoBehaviour
         Debug.Log("---------------------------");
         //mainsceneの読み込み
         Debug.Log("MainSceneへの移行します");
+        Config.currentScene = "MainScene";
         SceneManager.LoadScene("MainScene");
     }
 }

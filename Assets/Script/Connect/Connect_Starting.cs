@@ -24,23 +24,24 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
 
         //どのクライアントも、キックされる処理ができるように設定
         PhotonNetwork.EnableCloseConnection = true;
-        //オフラインモードかオンラインモードか、どちらか設定
-        PhotonNetwork.OfflineMode = Config.isOfflineMode;
-        //オンラインモードの場合
-        if (!PhotonNetwork.OfflineMode)
-        {
-            // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
-            Debug.Log("オンラインモード");
-            Debug.Log("マスターサーバーへの接続開始");
-            PhotonNetwork.ConnectUsingSettings();
-            
-        }
-        else
+
+        //オフラインモードの場合
+        if(Config.isOfflineMode)
         {
             Debug.Log("オフラインモード");
             //元からあるライトを非アクティブ化
             directionalLight.SetActive(false);
+            //即座にOnConnectedToMaster()が呼ばれる
+            PhotonNetwork.OfflineMode = true;
+            return;
         }
+
+        //オンラインモードの場合
+        //PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
+        Debug.Log("オンラインモード");
+        Debug.Log("マスターサーバーへの接続開始");
+        PhotonNetwork.ConnectUsingSettings();
+            
     }
 
 
@@ -66,6 +67,7 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
     // マスターサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnConnectedToMaster()
     {
+
         Debug.Log("マスターサーバーの接続成功");
         //参加可能人数を3人に設定
         var roomOptions = new RoomOptions();
@@ -76,6 +78,13 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
         // roomNameというルームに参加する（ルームが存在しなければ作成して参加する）
         string roomName = Config.roomName;
         Debug.Log(roomName + "への接続開始");
+
+        if(Config.currentScene == "TitleScene")
+        {
+            PhotonNetwork.Disconnect();
+            return;
+        }
+       
         PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
     }
 
@@ -136,6 +145,15 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
         //元からあるライトを非アクティブ化
         directionalLight.SetActive(false);
 
+    }
+
+    //ルームの作成に失敗した時に呼ばれるコールバック
+    public void OnCreateRoomFailed(short returnCode, string message)
+    {
+        Debug.Log("ルームの作成に失敗しました");
+        PhotonNetwork.Disconnect();
+        Debug.Log("TitleSceneへ戻ります");
+        SceneManager.LoadScene("TitleScene");
     }
 
     //ルームへの参加が失敗した時に呼ばれるコールバック

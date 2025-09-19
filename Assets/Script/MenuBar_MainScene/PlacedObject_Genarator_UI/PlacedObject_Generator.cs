@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using Photon.Pun;
-using Photon.Realtime;
+//using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -10,7 +10,7 @@ using TMPro;
 
 
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
-public class PlacedObject_Generator : MonoBehaviourPunCallbacks
+public class PlacedObject_Generator : MonoBehaviour
 {
     private string objName;
 
@@ -57,21 +57,17 @@ public class PlacedObject_Generator : MonoBehaviourPunCallbacks
 
     }
 
+
     private void LookAtCamera(GameObject obj)
     {
-        Transform target = cameraRig_tf;
-        //対象との方向を計算
-        Vector3 direction = target.position - obj.transform.position;
-
-        //Y軸のみを考慮するためにXとZを固定
+        Vector3 direction = cameraRig_tf.position - obj.transform.position;
+        //Y軸だけを考慮
         direction.y = 0;
 
-        //方向がゼロベクトルでない場合のみ回転を設定
         if(direction != Vector3.zero)
         {
-            //Y軸だけを回転させるQuaternionを計算
+            //回転させるQuaternionを計算
             Quaternion rotation = Quaternion.LookRotation(direction);
-            //回転を適用
             obj.transform.rotation = rotation;
         }
 
