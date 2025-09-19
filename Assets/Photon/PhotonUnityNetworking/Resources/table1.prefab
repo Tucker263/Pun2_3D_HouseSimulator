@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649bca7f8c29f4348b140a5b2bd802d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextName: Furniture_UI
+  nextName: PlacedObject_UI
 --- !u!114 &-2459187468792952297
 MonoBehaviour:
   m_ObjectHideFlags: 0

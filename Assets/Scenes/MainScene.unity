@@ -4308,10 +4308,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1071578099}
-  - {fileID: 1750130784}
   - {fileID: 1211796346}
   - {fileID: 870314716}
   - {fileID: 2141782638}
+  - {fileID: 1750130784}
   - {fileID: 1781413748}
   - {fileID: 1741571766}
   - {fileID: 927128604}
@@ -8753,6 +8753,7 @@ GameObject:
   - component: {fileID: 778115445}
   - component: {fileID: 778115444}
   - component: {fileID: 778115448}
+  - component: {fileID: 778115449}
   m_Layer: 5
   m_Name: Destroy_Button
   m_TagString: Untagged
@@ -8908,6 +8909,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8bfc265d8acf6458e8dd2b8a3ddc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &778115449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778115441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649bca7f8c29f4348b140a5b2bd802d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextName: Default_UI
 --- !u!1 &778165302
 GameObject:
   m_ObjectHideFlags: 0
@@ -10244,7 +10258,7 @@ GameObject:
   - component: {fileID: 835736130}
   - component: {fileID: 835736134}
   m_Layer: 5
-  m_Name: Furniture_Gene_Button
+  m_Name: Furniture_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10398,7 +10412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649bca7f8c29f4348b140a5b2bd802d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextName: Furniture_Gene_UI
+  nextName: Furniture_UI
 --- !u!1 &864093952
 GameObject:
   m_ObjectHideFlags: 0
@@ -15622,7 +15636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1211796346}
   m_Layer: 5
-  m_Name: Furniture_Gene_UI
+  m_Name: Furniture_UI
   m_TagString: menubar_ui
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21103,7 +21117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1750130784}
   m_Layer: 5
-  m_Name: Furniture_UI
+  m_Name: PlacedObject_UI
   m_TagString: menubar_ui
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
