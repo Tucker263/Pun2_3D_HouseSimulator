@@ -18,7 +18,7 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
         
     }
 
-    //自分が退出した時の処理
+    //自分が部屋から退出した時の処理
     public override void OnLeftRoom()
     {
         Debug.Log("部屋から退出しました");
@@ -29,17 +29,24 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
     }
 
 
-    //他の人が退出した時に、avator(ネットワークオブジェクト)を破棄
+    //他のプレイヤーが退出した時の処理
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
+        //退出したプレイヤーのavatorを破棄する処理
+        DestroyLeftAvatar();
+
+    }
+
+
+    private void DestroyLeftAvatar()
+    {
         List<GameObject> objList = NetworkObject_Search.GetListFromTag("avator");
-        //avatorの配列から退出するプレイヤーのavatorを削除
         foreach (GameObject obj in objList)
         {
             Avator_Mesh a_m = obj.GetComponent<Avator_Mesh>();
-            //他の人が退出すると、所有権がマスタークライアントに移るため、マスタークライアントが削除できる
-            //自分がマスタークライアントで、マスタークライアント以外の生産者だったら、プレイヤーオブジェクトを削除
-            if (PhotonNetwork.IsMasterClient && a_m.GetCreatorID() != 1)
+            //他のプレイヤーが退出すると所有権が移る
+            bool canDestoryAvator = PhotonNetwork.IsMasterClient && a_m.GetCreatorID() != 1;
+            if (canDestoryAvator)
             {
                 PhotonNetwork.Destroy(obj);
             }
@@ -49,19 +56,25 @@ public class Connect_Manager : MonoBehaviourPunCallbacks
     }
 
 
-    //他のプレイヤーがルームに入室した時に呼ばれるコールバック
+    //他のプレイヤーがルームに参加したときの処理
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        //自分がマスタークライアントの時、全クライアントに向けて最新の状態を同期する処理を行う
-        //この処理がないと、今の状況を途中参加者に反映できない
         if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("他プレイヤーが参加しました。最新の状況を反映させます");
-            GameObject obj = NetworkObject_Search.GetObjectFromName("CurrentState_Synchronize");
-            CurrentState_Synchronize c_s = obj.GetComponent<CurrentState_Synchronize>();
-            c_s.Synchronize();
-            Debug.Log("他プレイヤーの同期完了");
+            //他のプレイヤーの同期処理
+            SyncStateForNewPlayer();
         }
+
+    }
+
+
+    private void SyncStateForNewPlayer()
+    {
+        Debug.Log("他プレイヤーが参加しました。最新の状況を反映させます");
+        GameObject obj = NetworkObject_Search.GetObjectFromName("CurrentState_Synchronize");
+        CurrentState_Synchronize c_s = obj.GetComponent<CurrentState_Synchronize>();
+        c_s.Synchronize();
+        Debug.Log("他プレイヤーの同期完了");
 
     }
 

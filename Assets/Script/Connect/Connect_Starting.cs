@@ -37,7 +37,6 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
         }
 
         //オンラインモード
-        //PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         Debug.Log("オンラインモード");
         Debug.Log("マスターサーバーへの接続開始");
         PhotonNetwork.ConnectUsingSettings();
