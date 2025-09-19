@@ -32,18 +32,13 @@ public class PlacedObject_Generator : MonoBehaviourPunCallbacks
     {
         //自分の正面にオブジェクトの生成を指定
         var position = DesignateFront();
-
         //オブジェクトの生成
-        GameObject ObjectClone = PhotonNetwork.Instantiate(objName, position, Quaternion.identity);
-        ObjectClone.transform.eulerAngles = new Vector3(0, 0, 0);
-        Debug.Log(ObjectClone.transform.rotation);
-       ObjectClone.transform.LookAt(cameraRig_tf);
-        Debug.Log(ObjectClone.transform.rotation);
-        //ObjectClone.transform.eulerAngles = new Vector3(0, ObjectClone.transform.rotation.y, 0);
-
+        GameObject obj = PhotonNetwork.Instantiate(objName, position, Quaternion.identity); 
+        //オブジェクトをy軸だけ自分方向に向ける
+        LookAtCamera(obj);
 
         //クリックイベントを登録
-        SelectedObject_EventTrigger_Register.registerFromObj(ObjectClone);
+        SelectedObject_EventTrigger_Register.registerFromObj(obj);
 
         //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
         EventSystem.current.SetSelectedGameObject(null);
@@ -59,6 +54,26 @@ public class PlacedObject_Generator : MonoBehaviourPunCallbacks
         var position = new Vector3(cameraRig_tf.position.x + LengthX, cameraRig_tf.position.y + 3, cameraRig_tf.position.z + LengthZ);
 
         return position;
+
+    }
+
+    private void LookAtCamera(GameObject obj)
+    {
+        Transform target = cameraRig_tf;
+        //対象との方向を計算
+        Vector3 direction = target.position - obj.transform.position;
+
+        //Y軸のみを考慮するためにXとZを固定
+        direction.y = 0;
+
+        //方向がゼロベクトルでない場合のみ回転を設定
+        if(direction != Vector3.zero)
+        {
+            //Y軸だけを回転させるQuaternionを計算
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            //回転を適用
+            obj.transform.rotation = rotation;
+        }
 
     }
 }
