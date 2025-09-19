@@ -17,8 +17,8 @@ public class PlacedObject_ClickEvent : MonoBehaviour
         {
             //オブジェクトを選択
             GameObject obj = this.gameObject;
-            PlacedObject_Select p_s = obj.GetComponent<PlacedObject_Select>();
-            p_s.Select();
+            Object_Select o_s = obj.GetComponent<Object_Select>();
+            o_s.Select();
 
             //メニューバーの遷移
             MenuBar_Transition m_t = obj.GetComponent<MenuBar_Transition>();

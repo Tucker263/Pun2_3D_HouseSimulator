@@ -6,11 +6,11 @@ using UnityEngine;
 //DistanceGrabの再現、VR想定
 public class PlacedObject_DistanceGrab : MonoBehaviour
 {
-    Transform movedObj_tf;
+    Transform placedObj_tf;
 
     void Start()
     {
-        movedObj_tf = GetComponent<Transform>();
+        placedObj_tf = GetComponent<Transform>();
     }
 
     //ドラッグ中に、オブジェクトを移動
@@ -20,7 +20,7 @@ public class PlacedObject_DistanceGrab : MonoBehaviour
         //奥行指定、カメラから20ユニット先
         mousePos.z = 20.0f;
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-        movedObj_tf.position = worldPos;
+        placedObj_tf.position = worldPos;
 
     }
 

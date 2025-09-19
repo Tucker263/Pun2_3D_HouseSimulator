@@ -121,9 +121,11 @@ GameObject:
   - component: {fileID: 1499525963555417748}
   - component: {fileID: 5718723090797440427}
   - component: {fileID: -7570770826577719273}
-  - component: {fileID: 5323307756965784181}
-  - component: {fileID: 3723949607352052777}
-  - component: {fileID: 7219863903259011209}
+  - component: {fileID: 7125083454137523887}
+  - component: {fileID: 5062251500294775066}
+  - component: {fileID: 5712702009836020564}
+  - component: {fileID: 3475591579488937420}
+  - component: {fileID: 279388178438566660}
   m_Layer: 0
   m_Name: table1
   m_TagString: furniture
@@ -297,28 +299,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7219863903259011209}
-          m_TargetAssemblyTypeName: MovedObject_Destroy, Assembly-CSharp
-          m_MethodName: Destroy
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 5
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3723949607352052777}
-          m_TargetAssemblyTypeName: MovedObject_DistanceGrab, Assembly-CSharp
+        - m_Target: {fileID: 5062251500294775066}
+          m_TargetAssemblyTypeName: PlacedObject_DistanceGrab, Assembly-CSharp
           m_MethodName: Grab
           m_Mode: 1
           m_Arguments:
@@ -329,7 +315,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &5323307756965784181
+--- !u!114 &7125083454137523887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -338,10 +324,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7305442593568853884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a43d46a48db27844faadf3acd88d7cac, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a778f3f63047054bb67ca3b61fe61a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3723949607352052777
+--- !u!114 &5062251500294775066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,10 +336,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7305442593568853884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb1e31685de06954fb5814eb72ade305, type: 3}
+  m_Script: {fileID: 11500000, guid: 645803e3523869e46ba491f599a5498a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7219863903259011209
+--- !u!114 &5712702009836020564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,6 +348,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 7305442593568853884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4987d8e6721c43e4dbeec26b213492b6, type: 3}
+  m_Script: {fileID: 11500000, guid: d8ac70557f9d21f428549f3bb03136ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3475591579488937420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305442593568853884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703637332b7117c4c93b3f3309db92ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &279388178438566660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305442593568853884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649bca7f8c29f4348b140a5b2bd802d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextName: Furniture_UI
