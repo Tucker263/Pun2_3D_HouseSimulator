@@ -51,7 +51,7 @@ public static class Save_Manager
         LightingInfo_Manager.Save(directoryPath);  
         
         //house_smallの情報のセーブ処理
-        HouseSmallFile_Manager.Save(directoryPath);
+        HouseSmallInfo_Manager.Save(directoryPath);
 
     }
 

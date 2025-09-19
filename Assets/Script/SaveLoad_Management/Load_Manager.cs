@@ -68,7 +68,7 @@ public static class Load_Manager
         //照明のロード処理
         LightingInfo_Manager.Load(directoryPath);
         //house_smallの情報のロード処理
-        HouseSmallFile_Manager.Load(directoryPath);
+        HouseSmallInfo_Manager.Load(directoryPath);
         
     }
 }   

@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using Photon.Pun;
 using UnityEngine;
 using System.IO;
 
 
-public static class HouseSmallFile_Manager
+public static class HouseSmallInfo_Manager
 {
 
     public static void Save(string directoryPath)
@@ -43,6 +42,7 @@ public static class HouseSmallFile_Manager
             GameObject obj = NetworkObject_Search.GetObjectFromTag(loadTag);
             //HouseSmallnfoを適用
             HouseSmallInfo_Format.ApplyObject(obj, info);
+
         }
 
     }

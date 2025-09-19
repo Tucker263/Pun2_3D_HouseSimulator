@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Photon.Pun;
 using UnityEngine;
-using System.IO;
-
 
 
 //house_smallの情報
