@@ -26,7 +26,7 @@ public class HouseSmall_Synchronize : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ReflectHouseSmall(string jsonData)
     {
-        //JSONをC#のオブジェクトに変換
+        //JSONをHouseSmallInfoに変換
         HouseSmallInfo info = JsonUtility.FromJson<HouseSmallInfo>(jsonData);
         //house_smallを探す
         GameObject obj = NetworkObject_Search.GetObjectFromTag("house_small");

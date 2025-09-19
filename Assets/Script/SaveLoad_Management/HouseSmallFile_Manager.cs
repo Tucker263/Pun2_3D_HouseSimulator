@@ -10,57 +10,41 @@ public static class HouseSmallFile_Manager
 
     public static void Save(string directoryPath)
     {
-        //house_small.jsonのような形式で保存
         string saveTag = "house_small";
-        GameObject obj = NetworkObject_Search.GetObjectFromTag(saveTag);
-        //HouseSmallInfoに変換
-        HouseSmallInfo info = HouseSmallInfo_Format.Convert(obj);
+        List<GameObject> objList = NetworkObject_Search.GetListFromTag(saveTag);
 
-        //JSONに変換
-        string jsonData = JsonUtility.ToJson(info);
+        //JSONのリストに変換
+        List<string> jsonList = new List<string>();
+        foreach(GameObject obj in objList)
+        {
+            //HouseSmallInfoに変換
+            HouseSmallInfo info = HouseSmallInfo_Format.Convert(obj);
+            //JSONに変換
+            string jsonData = JsonUtility.ToJson(info);
+            jsonList.Add(jsonData);
 
-        string fileName = saveTag + ".json";
-        string filePath = Path.Combine(directoryPath, fileName);
-        //ファイルに保存
-        File.WriteAllText(filePath, jsonData); 
+        }
+        //JSONデータをセーブ
+        JsonFile_Manager.Save(directoryPath, saveTag, jsonList);
 
     }
 
 
     public static void Load(string directoryPath)
     {
-        //house_small.jsonのような形式を読み込み
         string loadTag = "house_small";
-        string jsonData = ReadFileOfJSON(loadTag, directoryPath);
+        List<string> jsonList = JsonFile_Manager.Load(directoryPath, loadTag);
 
-        //jsonからHouseSmallInfoに変換
-        HouseSmallInfo info = JsonUtility.FromJson<HouseSmallInfo>(jsonData);
-
-        GameObject obj = NetworkObject_Search.GetObjectFromTag(loadTag);
-        //HouseSmallnfoを適用
-        HouseSmallInfo_Format.ApplyObject(obj, info);
-
-    }
-
-    private static string ReadFileOfJSON(string loadTag, string directoryPath)
-    {
-        //フォルダ内の"{loadTag}.json"を読み込む
-        //フォルダ内は"{loadTag}.json"という形式で順に保存されている
-        string fileName = loadTag + ".json";
-        string filePath = Path.Combine(directoryPath, fileName);
-        string jsonData = "";
-        //ファイルが存在するか確認
-        if (File.Exists(filePath))
+        foreach(string jsonData in jsonList)
         {
-            //ファイルからJSONデータを読み込む
-            jsonData = File.ReadAllText(filePath);
+            //jsonからHouseSmallInfoに変換
+            HouseSmallInfo info = JsonUtility.FromJson<HouseSmallInfo>(jsonData);
+
+            GameObject obj = NetworkObject_Search.GetObjectFromTag(loadTag);
+            //HouseSmallnfoを適用
+            HouseSmallInfo_Format.ApplyObject(obj, info);
         }
-        else
-        {
-            Debug.Log("house_smallファイルが見つかりませんでした。");
-        }
-           
-        return jsonData;
+
     }
 
 }
