@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
-public class MovedObject_Destroy : MonoBehaviourPunCallbacks
+public class PlacedObject_Destroy : MonoBehaviourPunCallbacks
 {
     private float lastClickTime = 0f;
     private float doubleClickThreshold = 0.3f;

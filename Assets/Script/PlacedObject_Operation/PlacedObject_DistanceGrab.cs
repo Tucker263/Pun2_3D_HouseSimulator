@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 //DistanceGrabの再現、VR想定
-public class MovedObject_DistanceGrab : MonoBehaviour
+public class PlacedObject_DistanceGrab : MonoBehaviour
 {
     Transform movedObj_tf;
 

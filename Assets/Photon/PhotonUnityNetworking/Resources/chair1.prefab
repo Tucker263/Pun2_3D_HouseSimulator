@@ -121,9 +121,10 @@ GameObject:
   - component: {fileID: 4398796855963535525}
   - component: {fileID: 7950881811073894671}
   - component: {fileID: -6016821701517522748}
-  - component: {fileID: 1834748847210112834}
-  - component: {fileID: 1755996202717718315}
-  - component: {fileID: 576189535517280469}
+  - component: {fileID: 778609331119041918}
+  - component: {fileID: 7888751607209681455}
+  - component: {fileID: 3376463687644778285}
+  - component: {fileID: 1556002110664415274}
   m_Layer: 0
   m_Name: chair1
   m_TagString: furniture
@@ -301,8 +302,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1755996202717718315}
-          m_TargetAssemblyTypeName: MovedObject_DistanceGrab, Assembly-CSharp
+        - m_Target: {fileID: 778609331119041918}
+          m_TargetAssemblyTypeName: PlacedObject_DistanceGrab, Assembly-CSharp
           m_MethodName: Grab
           m_Mode: 1
           m_Arguments:
@@ -317,9 +318,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 576189535517280469}
-          m_TargetAssemblyTypeName: MovedObject_Destroy, Assembly-CSharp
-          m_MethodName: Destroy
+        - m_Target: {fileID: 1556002110664415274}
+          m_TargetAssemblyTypeName: MenuBar_Transition, Assembly-CSharp
+          m_MethodName: Transition
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -329,7 +330,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1834748847210112834
+--- !u!114 &778609331119041918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -338,10 +339,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8429721823874684442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a43d46a48db27844faadf3acd88d7cac, type: 3}
+  m_Script: {fileID: 11500000, guid: 645803e3523869e46ba491f599a5498a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1755996202717718315
+--- !u!114 &7888751607209681455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,10 +351,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8429721823874684442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb1e31685de06954fb5814eb72ade305, type: 3}
+  m_Script: {fileID: 11500000, guid: d8ac70557f9d21f428549f3bb03136ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &576189535517280469
+--- !u!114 &3376463687644778285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,6 +363,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8429721823874684442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4987d8e6721c43e4dbeec26b213492b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 703637332b7117c4c93b3f3309db92ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1556002110664415274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8429721823874684442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649bca7f8c29f4348b140a5b2bd802d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextName: Furniture_UI

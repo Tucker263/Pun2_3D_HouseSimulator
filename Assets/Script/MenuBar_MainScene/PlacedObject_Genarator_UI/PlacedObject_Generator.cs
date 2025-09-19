@@ -10,7 +10,7 @@ using TMPro;
 
 
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
-public class MovedObject_Generator : MonoBehaviourPunCallbacks
+public class PlacedObject_Generator : MonoBehaviourPunCallbacks
 {
     private string objName;
 
@@ -35,8 +35,13 @@ public class MovedObject_Generator : MonoBehaviourPunCallbacks
         float LengthX = (float)(Length * Math.Sin(RadianY));
         float LengthZ = (float)(Length * Math.Cos(RadianY));
         var position = new Vector3(cameraRig_tf.position.x + LengthX, cameraRig_tf.position.y + 3, cameraRig_tf.position.z + LengthZ);
+
         GameObject ObjectClone = PhotonNetwork.Instantiate(objName, position, Quaternion.identity);
-        ObjectClone.transform.LookAt(cameraRig_tf);
+        ObjectClone.transform.eulerAngles = new Vector3(0, 0, 0);
+        Debug.Log(ObjectClone.transform.rotation);
+       ObjectClone.transform.LookAt(cameraRig_tf);
+        Debug.Log(ObjectClone.transform.rotation);
+        //ObjectClone.transform.eulerAngles = new Vector3(0, ObjectClone.transform.rotation.y, 0);
 
         //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
         EventSystem.current.SetSelectedGameObject(null);

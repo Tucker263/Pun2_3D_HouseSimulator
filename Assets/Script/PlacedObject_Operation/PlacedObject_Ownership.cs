@@ -8,7 +8,7 @@ using UnityEngine;
 //オブジェクトが動かされた瞬間、つまり速度が変わった時にオーナーシップが変わるようにする
 //これがないと、オブジェクトが衝突した時などに所有権の関係で位置を同期できない
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
-public class MovedObject_Ownership : MonoBehaviourPunCallbacks
+public class PlacedObject_Ownership : MonoBehaviourPunCallbacks
 {
     private Vector3 prevPosition;
 
