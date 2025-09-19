@@ -5,16 +5,6 @@ using UnityEngine;
 using System.IO;
 
 
-
-//house_smallの情報
-[System.Serializable] // JSON化するにはSerializable属性が必要
-public class HouseSmallInfo
-{
-    public string name;
-    public bool isActive;
-}
-
-
 public static class HouseSmallFile_Manager
 {
 
@@ -23,13 +13,11 @@ public static class HouseSmallFile_Manager
         //house_small.jsonのような形式で保存
         string saveTag = "house_small";
         GameObject obj = NetworkObject_Search.GetObjectFromTag(saveTag);
-        //house_smallの情報を取得
-        HouseSmallInfo house_small = new HouseSmallInfo();
-        house_small.name = obj.name;
-        house_small.isActive = obj.activeSelf;
+        //HouseSmallInfoに変換
+        HouseSmallInfo info = HouseSmallInfo_Format.Convert(obj);
 
         //JSONに変換
-        string jsonData = JsonUtility.ToJson(house_small);
+        string jsonData = JsonUtility.ToJson(info);
 
         string fileName = saveTag + ".json";
         string filePath = Path.Combine(directoryPath, fileName);
@@ -45,11 +33,12 @@ public static class HouseSmallFile_Manager
         string loadTag = "house_small";
         string jsonData = ReadFileOfJSON(loadTag, directoryPath);
 
-        //jsonからhouse_smallオブジェクトに変換
-        HouseSmallInfo house_small = JsonUtility.FromJson<HouseSmallInfo>(jsonData);
+        //jsonからHouseSmallInfoに変換
+        HouseSmallInfo info = JsonUtility.FromJson<HouseSmallInfo>(jsonData);
 
         GameObject obj = NetworkObject_Search.GetObjectFromTag(loadTag);
-        obj.SetActive(house_small.isActive); 
+        //HouseSmallnfoを適用
+        HouseSmallInfo_Format.ApplyObject(obj, info);
 
     }
 
