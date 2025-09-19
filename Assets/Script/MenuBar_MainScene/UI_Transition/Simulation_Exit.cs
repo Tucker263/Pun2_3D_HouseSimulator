@@ -22,12 +22,13 @@ public class Simulation_Exit : MonoBehaviourPunCallbacks
             KickOtherAllClients();
         }
         
-        //オフラインモード時、すぐに切断
+        //オフラインモード時、すぐに切断処理
         if(Config.isOfflineMode)
         {
             PhotonNetwork.Disconnect();
             return;
         }
+
         PhotonNetwork.LeaveRoom();
 
     }
