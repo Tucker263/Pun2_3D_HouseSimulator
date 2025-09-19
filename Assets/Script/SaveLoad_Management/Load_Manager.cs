@@ -43,7 +43,7 @@ public static class Load_Manager
         };
         foreach(string tag in transformTagList)
         {
-            TransformInfo_Manager.Load(directoryPath, tag);
+            TransformFile_Manager.Load(directoryPath, tag);
         }
 
 
@@ -59,16 +59,16 @@ public static class Load_Manager
         };
         foreach(string tag in materialTagList)
         {
-            MaterialInfo_Manager.Load(directoryPath, tag);
+            MaterialFile_Manager.Load(directoryPath, tag);
         }
 
 
         //ドアのロード処理
-        DoorInfo_Manager.Load(directoryPath);
+        DoorFile_Manager.Load(directoryPath);
         //照明のロード処理
-        LightingInfo_Manager.Load(directoryPath);
+        LightingFile_Manager.Load(directoryPath);
         //house_smallの情報のロード処理
-        HouseSmallInfo_Manager.Load(directoryPath);
+        HouseSmallFile_Manager.Load(directoryPath);
         
     }
 }   

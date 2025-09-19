@@ -25,7 +25,7 @@ public static class Save_Manager
         };
         foreach(string tag in transformTagList)
         {
-            TransformInfo_Manager.Save(directoryPath, tag);
+            TransformFile_Manager.Save(directoryPath, tag);
         }
 
 
@@ -41,17 +41,17 @@ public static class Save_Manager
         };
         foreach(string tag in materialTagList)
         {
-            MaterialInfo_Manager.Save(directoryPath, tag);
+            MaterialFile_Manager.Save(directoryPath, tag);
         }
 
 
         //ドアのセーブ処理
-        DoorInfo_Manager.Save(directoryPath);
+        DoorFile_Manager.Save(directoryPath);
         //照明のセーブ処理
-        LightingInfo_Manager.Save(directoryPath);  
+        LightingFile_Manager.Save(directoryPath);  
         
         //house_smallの情報のセーブ処理
-        HouseSmallInfo_Manager.Save(directoryPath);
+        HouseSmallFile_Manager.Save(directoryPath);
 
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 using System.IO;
 
 
-public static class TransformInfo_Manager
+public static class TransformFile_Manager
 {
 
     public static void Save(string directoryPath, string saveTag)
@@ -59,7 +59,7 @@ public static class TransformInfo_Manager
             return;
         }
 
-        //MovedObjectのロード
+        //PlacedObjectのロード
         foreach (string jsonData in jsonList)
         {
             //jsonからTransformInfoに変換

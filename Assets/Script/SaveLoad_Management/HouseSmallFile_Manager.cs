@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 
 
-public static class HouseSmallInfo_Manager
+public static class HouseSmallFile_Manager
 {
 
     public static void Save(string directoryPath)

@@ -5,7 +5,7 @@ using UnityEngine;
 using System.IO;
 
 
-public static class MaterialInfo_Manager
+public static class MaterialFile_Manager
 {
 
     public static void Save(string directoryPath, string saveTag)
