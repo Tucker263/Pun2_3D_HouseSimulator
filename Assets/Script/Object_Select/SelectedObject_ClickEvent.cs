@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//MaterialObjのクリックイベント
-public class MaterialObj_ClickEvent : MonoBehaviour
+//SelctedObjectのクリックイベント
+public class SelectedObject_ClickEvent : MonoBehaviour
 {
     //ダブルクリック判別用
     private static float lastClickTime = 0f;
@@ -17,8 +17,8 @@ public class MaterialObj_ClickEvent : MonoBehaviour
         {
             //オブジェクトを選択
             GameObject obj = this.gameObject;
-            MaterialObj_Select m_s = obj.GetComponent<MaterialObj_Select>();
-            m_s.Select();
+            Object_Select o_s = obj.GetComponent<Object_Select>();
+            o_s.Select();
 
             //メニューバーの遷移
             MenuBar_Transition m_t = obj.GetComponent<MenuBar_Transition>();

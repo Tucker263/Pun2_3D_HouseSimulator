@@ -4,12 +4,9 @@ using Photon.Pun;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-//MaterialObjのイベントトリガーを登録するクラス
-public static class MaterialObj_EventTrigger_Register
+//SlectedObjectのイベントトリガーを登録するクラス
+public static class SelectedObject_EventTrigger_Register
 {
-    //ダブルクリック判別用
-    private static float lastClickTime = 0f;
-    private static float doubleClickThreshold = 0.3f;
 
     public static void register(string registerTag)
     {
@@ -43,8 +40,8 @@ public static class MaterialObj_EventTrigger_Register
 
     private static void OnPointerClick(GameObject obj)
     {
-        MaterialObj_ClickEvent m_c = obj.GetComponent<MaterialObj_ClickEvent>();
-        m_c.Trigger();
+        SelectedObject_ClickEvent s_c = obj.GetComponent<SelectedObject_ClickEvent>();
+        s_c.Trigger();
 
     }
 

@@ -15,17 +15,17 @@ public static class EventTrigger_Register
         Lighting_EventTrigger_Register.register();
 
         //家の天井、内壁、床、外壁、屋根のイベントトリガーを登録
-        List<string> materialTag = new List<string>()
+        List<string> selectedTag = new List<string>()
         {
             "ceiling", 
             "innerWall", 
             "floor",
             "outerWall",
-            "roof"
+            "roof",
         };
-        foreach(string tag in materialTag)
+        foreach(string tag in selectedTag)
         {
-            MaterialObj_EventTrigger_Register.register(tag);
+            SelectedObject_EventTrigger_Register.register(tag);
         }
 
     }

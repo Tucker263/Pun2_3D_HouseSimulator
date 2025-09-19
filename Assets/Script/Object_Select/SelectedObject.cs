@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public static class Material_SelectedObj
+public static class SelectedObject
 {
     public static GameObject obj;
 }

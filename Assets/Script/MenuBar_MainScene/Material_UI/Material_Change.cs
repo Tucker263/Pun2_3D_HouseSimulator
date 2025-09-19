@@ -24,7 +24,7 @@ public class Material_Change : MonoBehaviourPunCallbacks
 
     public void Change()
     {
-        GameObject obj = Material_SelectedObj.obj;
+        GameObject obj = SelectedObject.obj;
         if(obj != null)
         {
                 ChangeMaterial(targetTag);
