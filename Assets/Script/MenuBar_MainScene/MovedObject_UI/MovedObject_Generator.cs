@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+
 
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class MovedObject_Generator : MonoBehaviourPunCallbacks
@@ -14,6 +16,7 @@ public class MovedObject_Generator : MonoBehaviourPunCallbacks
 
     private GameObject cameraRig;
     private Transform cameraRig_tf;
+    public float Length;
     
     void Start()
     {
@@ -27,11 +30,13 @@ public class MovedObject_Generator : MonoBehaviourPunCallbacks
 
     public void Generate()
     {
-        //VR用カメラの目の前に生成
-        var position = new Vector3(cameraRig_tf.position.x, 2, cameraRig_tf.position.z + 3);
-        Quaternion rotation = Quaternion.Euler(0, 90, 0);
-
-        PhotonNetwork.Instantiate(objName, position, rotation);
+        //自分がどんな方向を見ても、自分に対して正面にオブジェクトを生成
+        double RadianY = Math.PI * cameraRig_tf.eulerAngles.y / 180.0;
+        float LengthX = (float)(Length * Math.Sin(RadianY));
+        float LengthZ = (float)(Length * Math.Cos(RadianY));
+        var position = new Vector3(cameraRig_tf.position.x + LengthX, cameraRig_tf.position.y + 3, cameraRig_tf.position.z + LengthZ);
+        GameObject ObjectClone = PhotonNetwork.Instantiate(objName, position, Quaternion.identity);
+        ObjectClone.transform.LookAt(cameraRig_tf);
 
         //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
         EventSystem.current.SetSelectedGameObject(null);
