@@ -5,7 +5,6 @@ using Photon.Realtime;
 using UnityEngine;
 
 //house_smallの同期を行うクラス
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class HouseSmall_Synchronize : MonoBehaviourPunCallbacks
 {
   

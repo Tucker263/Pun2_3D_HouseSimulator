@@ -13,7 +13,7 @@ public static class HouseSmall_Generator
         Quaternion houseSmallRotation = Quaternion.Euler(0, 90, 0);
         GameObject houseSmall = PhotonNetwork.Instantiate("house_small", houseSmallPosition, houseSmallRotation);
 
-        //名前が被ると、オブジェクトの操作などが上手くいかない
+        //名前被りを避けるため
         NameAllObject(houseSmall);
 
         return houseSmall;

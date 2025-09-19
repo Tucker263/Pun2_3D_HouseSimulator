@@ -6,7 +6,6 @@ using UnityEngine;
 
 
 //イベントトリガー登録の同期を行うクラス
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class EventTrigger_Synchronize : MonoBehaviourPunCallbacks
 {
   

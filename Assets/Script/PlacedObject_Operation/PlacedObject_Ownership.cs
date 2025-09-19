@@ -5,9 +5,8 @@ using Photon.Realtime;
 using UnityEngine;
 
 
-//オブジェクトが動かされた瞬間、つまり速度が変わった時にオーナーシップが変わるようにする
+//オブジェクトが動かされた瞬間、つまり速度が変わった時にオーナーシップが変わる
 //これがないと、オブジェクトが衝突した時などに所有権の関係で位置を同期できない
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class PlacedObject_Ownership : MonoBehaviourPunCallbacks
 {
     private Vector3 prevPosition;
@@ -24,7 +23,7 @@ public class PlacedObject_Ownership : MonoBehaviourPunCallbacks
         bool isMove = IsMove();
         if(isMove)
         {
-            //リクエストを送り合って、位置を同期させる
+            //リクエストを送り合って、位置を同期
             photonView.RequestOwnership();
         }
 

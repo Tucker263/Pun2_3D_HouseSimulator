@@ -5,7 +5,6 @@ using Photon.Realtime;
 using UnityEngine;
 
 //オブジェクトの名前の同期を行うクラス
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class ObjectName_Synchronize : MonoBehaviourPunCallbacks
 { 
 

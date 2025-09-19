@@ -37,7 +37,7 @@ public class Simulation_Exit : MonoBehaviourPunCallbacks
     private void KickOtherAllClients()
     {
         Debug.Log("マスタークライアントのみ、他クライアントのキック処理開始");
-        //自分以外のプレイヤーオブジェクトを取得し、キック処理
+        //自分以外のプレイヤーオブジェクトを取得
         var otherPlayers = PhotonNetwork.PlayerListOthers;
         for (int i = 0; i < otherPlayers.Length; i++)
         {

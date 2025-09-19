@@ -5,7 +5,6 @@ using Photon.Realtime;
 using UnityEngine;
 
 //マテリアルの情報の同期を行うクラス
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class Material_Synchronize : MonoBehaviourPunCallbacks
 {
    
@@ -28,7 +27,7 @@ public class Material_Synchronize : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ReflectMaterial(string targetTag, string jsonData)
     {
-        //JSONをC#のオブジェクトに変換
+        //JSONをC#のMaterialInfoに変換
         MaterialInfo info = JsonUtility.FromJson<MaterialInfo>(jsonData);
         //同期するタグと名前の両方が一致しているオブジェクトを探す
         GameObject obj = NetworkObject_Search.GetObjectFromTagAndName(targetTag, info.placeName);

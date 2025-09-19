@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using Photon.Pun;
-//using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
 
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class PlacedObject_Generator : MonoBehaviour
 {
     private string objName;

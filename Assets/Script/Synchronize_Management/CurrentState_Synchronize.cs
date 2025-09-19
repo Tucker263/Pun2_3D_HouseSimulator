@@ -5,15 +5,12 @@ using Photon.Realtime;
 using UnityEngine;
 
 //現在の状態に同期するクラス
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class CurrentState_Synchronize : MonoBehaviourPunCallbacks
 {
  
     public void Synchronize()
     {
-        //場所の名前が被るとうまく反映できないので、注意!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        //オブジェクトの場所の名前の同期、これをしないとゲスト側の同期がうまくいかない
+        //オブジェクトの場所の名前の同期、名前が被るとゲスト側の同期がうまくいかない
         ObjectName_Synchronize on_s = GetComponent<ObjectName_Synchronize>();
         on_s.Synchronize();
 

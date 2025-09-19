@@ -6,7 +6,6 @@ using UnityEngine;
 
 
 //ドアの同期を行うクラス
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class Door_Synchronize : MonoBehaviourPunCallbacks
 {
   
@@ -30,11 +29,11 @@ public class Door_Synchronize : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ReflectDoor(string jsonData)
     {
-        //JSONをC#のオブジェクトに変換
+        //JSONをDoorInfoに変換
         DoorInfo info = JsonUtility.FromJson<DoorInfo>(jsonData);
         //doorタグと名前の両方が一致しているオブジェクトを探す
         GameObject obj = NetworkObject_Search.GetObjectFromTagAndName("door", info.placeName);
-        //ドアの情報を適用
+        //DoorInfoを適用
         DoorInfo_Format.ApplyObject(obj, info);
    
     }

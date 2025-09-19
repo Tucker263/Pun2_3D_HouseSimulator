@@ -5,7 +5,6 @@ using Photon.Realtime;
 using UnityEngine;
 
 //照明の同期を行うクラス
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class Lighting_Synchronize : MonoBehaviourPunCallbacks
 {
 
@@ -28,9 +27,9 @@ public class Lighting_Synchronize : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ReflectLighting(string jsonData)
     {
-        //JSONをC#のオブジェクトに変換
+        //JSONをLightingInfoに変換
         LightingInfo info = JsonUtility.FromJson<LightingInfo>(jsonData);
-        //lightingタグと名前の両方が一致しているオブジェクトを探す、名前が被るとうまく反映できなくなるので注意
+        //lightingタグと名前の両方が一致しているオブジェクトを探す
         GameObject obj = NetworkObject_Search.GetObjectFromTagAndName("lighting", info.placeName);
         //LightingInfoを適用
         LightingInfo_Format.ApplyObject(obj, info);
