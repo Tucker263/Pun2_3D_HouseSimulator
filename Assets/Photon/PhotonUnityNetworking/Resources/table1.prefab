@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 5712702009836020564}
   - component: {fileID: 3475591579488937420}
   - component: {fileID: 279388178438566660}
+  - component: {fileID: -2459187468792952297}
   m_Layer: 0
   m_Name: table1
   m_TagString: furniture
@@ -376,3 +377,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextName: Furniture_UI
+--- !u!114 &-2459187468792952297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305442593568853884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf3414b293c8104b873eac94e873b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

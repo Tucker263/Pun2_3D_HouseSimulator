@@ -46,5 +46,7 @@ public class PlacedObject_Generator : MonoBehaviourPunCallbacks
         //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
         EventSystem.current.SetSelectedGameObject(null);
 
+        //クリックイベントを登録！！！！！！！！！！！！
+
     }
 }

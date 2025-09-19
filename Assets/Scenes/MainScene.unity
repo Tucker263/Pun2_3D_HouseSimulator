@@ -7507,7 +7507,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 693806679}
-        m_TargetAssemblyTypeName: Material_Decide_Button, Assembly-CSharp
+        m_TargetAssemblyTypeName: SelectedObject_Decide, Assembly-CSharp
         m_MethodName: Decide
         m_Mode: 1
         m_Arguments:
@@ -7565,7 +7565,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 693806672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c3f51217b766248a672bf015dab9e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 40f5373d5df556b40bd7b7d2ea0ecbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &709687830
@@ -9150,7 +9150,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 786375924}
-        m_TargetAssemblyTypeName: Door_Decide, Assembly-CSharp
+        m_TargetAssemblyTypeName: SelectedObject_Decide, Assembly-CSharp
         m_MethodName: Decide
         m_Mode: 1
         m_Arguments:
@@ -9208,7 +9208,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 786375917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f4728afb0a3e147aaffa8fda0a6f0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 40f5373d5df556b40bd7b7d2ea0ecbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &786930769
@@ -13952,7 +13952,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1068666946}
-        m_TargetAssemblyTypeName: Material_Decide, Assembly-CSharp
+        m_TargetAssemblyTypeName: SelectedObject_Decide, Assembly-CSharp
         m_MethodName: Decide
         m_Mode: 1
         m_Arguments:
@@ -14010,7 +14010,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1068666939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c3f51217b766248a672bf015dab9e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 40f5373d5df556b40bd7b7d2ea0ecbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1069635381
@@ -14783,7 +14783,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1112612952}
-        m_TargetAssemblyTypeName: Material_Decide, Assembly-CSharp
+        m_TargetAssemblyTypeName: SelectedObject_Decide, Assembly-CSharp
         m_MethodName: Decide
         m_Mode: 1
         m_Arguments:
@@ -14841,7 +14841,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1112612945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c3f51217b766248a672bf015dab9e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 40f5373d5df556b40bd7b7d2ea0ecbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1119219911
@@ -18754,7 +18754,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1463929307}
-        m_TargetAssemblyTypeName: Material_Decide, Assembly-CSharp
+        m_TargetAssemblyTypeName: SelectedObject_Decide, Assembly-CSharp
         m_MethodName: Decide
         m_Mode: 1
         m_Arguments:
@@ -18812,7 +18812,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1463929300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c3f51217b766248a672bf015dab9e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 40f5373d5df556b40bd7b7d2ea0ecbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1485769666
@@ -23439,7 +23439,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1933543651}
-        m_TargetAssemblyTypeName: Material_Decide_Button, Assembly-CSharp
+        m_TargetAssemblyTypeName: SelectedObject_Decide, Assembly-CSharp
         m_MethodName: Decide
         m_Mode: 1
         m_Arguments:
@@ -23497,7 +23497,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1933543644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c3f51217b766248a672bf015dab9e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 40f5373d5df556b40bd7b7d2ea0ecbd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1936312395
