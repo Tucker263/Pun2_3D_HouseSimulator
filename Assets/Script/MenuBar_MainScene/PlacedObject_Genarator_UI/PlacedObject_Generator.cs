@@ -50,6 +50,7 @@ public class PlacedObject_Generator : MonoBehaviourPunCallbacks
 
     }
 
+
     private Vector3 DesignateFront()
     {
         double RadianY = Math.PI * cameraRig_tf.eulerAngles.y / 180.0;
