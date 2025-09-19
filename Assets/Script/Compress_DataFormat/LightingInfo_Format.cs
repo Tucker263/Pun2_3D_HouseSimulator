@@ -36,22 +36,22 @@ public static class LightingInfo_Format
 
     public static void ApplyObject(GameObject obj, LightingInfo info)
     {
-        Light targetLight = obj.GetComponent<Light>();
-
         //Resourcesフォルダ内のコピー元のオブジェクトをロード
         GameObject sourceObj = Resources.Load<GameObject>("Lights/" + info.lightKind);
         //コピー元のlight
         Light sourceLight = sourceObj.GetComponent<Light>();
         //Lightのプロパティーを全てコピー
+        Light targetLight = obj.GetComponent<Light>();
         LightCopier.CopyLightProperties(sourceLight, targetLight);
 
-        //lightのその他の情報を書き換え
+        //その他を書き換え
         targetLight.name = info.placeName;
         targetLight.enabled = info.enabled;
         targetLight.intensity = info.intensity;
 
         TMP_Text targetTMP = obj.GetComponent<TMP_Text>();
         targetTMP.text = info.lightKind;
+        
     }
 
 }
