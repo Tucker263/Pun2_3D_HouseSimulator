@@ -18,6 +18,12 @@ public static class SelectedObject_EventTrigger_Register
         }
     }
 
+
+    public static void registerFromObj(GameObject obj)
+    {
+        AddPointerClick(obj);
+    }
+
     //PointerClickイベントを追加
     private static void AddPointerClick(GameObject obj)
     {

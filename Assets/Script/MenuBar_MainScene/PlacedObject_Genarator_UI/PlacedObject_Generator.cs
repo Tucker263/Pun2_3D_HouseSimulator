@@ -30,12 +30,10 @@ public class PlacedObject_Generator : MonoBehaviourPunCallbacks
 
     public void Generate()
     {
-        //自分がどんな方向を見ても、自分に対して正面にオブジェクトを生成
-        double RadianY = Math.PI * cameraRig_tf.eulerAngles.y / 180.0;
-        float LengthX = (float)(Length * Math.Sin(RadianY));
-        float LengthZ = (float)(Length * Math.Cos(RadianY));
-        var position = new Vector3(cameraRig_tf.position.x + LengthX, cameraRig_tf.position.y + 3, cameraRig_tf.position.z + LengthZ);
+        //自分の正面にオブジェクトの生成を指定
+        var position = DesignateFront();
 
+        //オブジェクトの生成
         GameObject ObjectClone = PhotonNetwork.Instantiate(objName, position, Quaternion.identity);
         ObjectClone.transform.eulerAngles = new Vector3(0, 0, 0);
         Debug.Log(ObjectClone.transform.rotation);
@@ -43,10 +41,23 @@ public class PlacedObject_Generator : MonoBehaviourPunCallbacks
         Debug.Log(ObjectClone.transform.rotation);
         //ObjectClone.transform.eulerAngles = new Vector3(0, ObjectClone.transform.rotation.y, 0);
 
+
+        //クリックイベントを登録
+        SelectedObject_EventTrigger_Register.registerFromObj(ObjectClone);
+
         //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
         EventSystem.current.SetSelectedGameObject(null);
 
-        //クリックイベントを登録！！！！！！！！！！！！
+    }
+
+    private Vector3 DesignateFront()
+    {
+        double RadianY = Math.PI * cameraRig_tf.eulerAngles.y / 180.0;
+        float LengthX = (float)(Length * Math.Sin(RadianY));
+        float LengthZ = (float)(Length * Math.Cos(RadianY));
+        var position = new Vector3(cameraRig_tf.position.x + LengthX, cameraRig_tf.position.y + 3, cameraRig_tf.position.z + LengthZ);
+
+        return position;
 
     }
 }
