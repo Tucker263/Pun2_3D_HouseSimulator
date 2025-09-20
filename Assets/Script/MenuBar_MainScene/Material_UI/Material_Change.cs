@@ -7,29 +7,48 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
+
 public class Material_Change : MonoBehaviourPunCallbacks
 {
     public string targetTag;
 
     private TextMeshProUGUI buttonTMP;
     private string materialName;
-    
+
     void Start()
     {
-        TextMeshProUGUI buttonTMP = GetComponentInChildren<TextMeshProUGUI>();
+        buttonTMP = FetchTMPFromDes();
         materialName = buttonTMP.text;
+
+    }
+
+    private TextMeshProUGUI FetchTMPFromDes()
+    {
+        TextMeshProUGUI tmp = new TextMeshProUGUI();
+        //TextMeshProGUIコンポーネントを子孫全て探す
+        List<Transform> tfList = DescendantObject_Search.GetList(this.gameObject.transform);
+        foreach (Transform tf in tfList)
+        {
+            tmp = tf.GetComponent<TextMeshProUGUI>();
+            if (tmp != null)
+            {
+                break;
+            }
+        }
+
+        return tmp;
+
     }
 
 
     public void Change()
     {
         GameObject obj = SelectedObject.obj;
-        if(obj != null)
+        if (obj != null)
         {
-                ChangeMaterial(targetTag);
+            ChangeMaterial(targetTag);
         }
-      
+
         //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
         EventSystem.current.SetSelectedGameObject(null);
 
@@ -39,7 +58,7 @@ public class Material_Change : MonoBehaviourPunCallbacks
     {
         PhotonView photonView = PhotonView.Get(this);
         photonView.RPC("ReflectMaterial", RpcTarget.All, targetTag, materialName);
-        
+
     }
 
 
@@ -48,8 +67,8 @@ public class Material_Change : MonoBehaviourPunCallbacks
     {
         List<GameObject> objList = NetworkObject_Search.GetListFromTag(targetTag);
         //Resourcesフォルダ内のマテリアルをロード
-        Material material = Resources.Load<Material>("Materials/"+ materialName);
-        foreach(GameObject obj in objList)
+        Material material = Resources.Load<Material>("Materials/" + materialName);
+        foreach (GameObject obj in objList)
         {
             Renderer renderer = obj.GetComponent<Renderer>();
             //マテリアルを変更
