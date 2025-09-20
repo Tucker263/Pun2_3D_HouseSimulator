@@ -9,15 +9,19 @@ public class MenuBar_Dictionary : MonoBehaviour
 
     public void Start()
     {
-        UI_table = new Dictionary<string, GameObject>();
+        SetInitProperty();
+    }
 
+
+    public void SetInitProperty()
+    {
+        UI_table = new Dictionary<string, GameObject>();
         //menubar_uiを全て取得して、連想配列にメニューを全て登録
         List<Transform> descendantList = DescendantObject_Search.GetListFromTag(this.gameObject.transform, "menubar_ui");
-        foreach(Transform descendant in descendantList)
+        foreach (Transform descendant in descendantList)
         {
             UI_table.Add(descendant.name, descendant.gameObject);
         }
-
     }
 
 }

@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class Connect_Starting : MonoBehaviourPunCallbacks
 {
     private GameObject directionalLight;
@@ -117,7 +116,10 @@ public class Connect_Starting : MonoBehaviourPunCallbacks
 
         //メニューバーを全て表示して、photonViewIDを一旦全部割り当てる
         menuObj.SetActive(true);
-        foreach(var value in MenuBar_Dictionary.UI_table.Values)
+        //メニューバーの初期プロパティの設定
+        MenuBar_Dictionary m_d = menuObj.GetComponent<MenuBar_Dictionary>();
+        m_d.SetInitProperty();
+        foreach (var value in MenuBar_Dictionary.UI_table.Values)
         {
             value.SetActive(true);
         }

@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-// MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class Connect_Manager : MonoBehaviourPunCallbacks
 {
     
