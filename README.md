@@ -47,4 +47,4 @@
 
 
 ## 使用技術
-Unity, Pun2
+__Unity, Pun2__
