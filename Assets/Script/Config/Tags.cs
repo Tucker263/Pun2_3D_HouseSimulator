@@ -5,6 +5,7 @@ using UnityEngine;
 public enum TagID
 {
     CameraRig,
+    CenterEyeAnchor,
     MenuBarPanel,
     MenuBarCanvas,
     OVRInputManager,
@@ -35,6 +36,7 @@ public static class Tags
     public static readonly Dictionary<TagID, string> Names = new()
     {
         { TagID.CameraRig, "CameraRig" },
+        { TagID.CenterEyeAnchor, "CenterEyeAnchor" },
         { TagID.MenuBarPanel, "MenuBarPanel" },
         { TagID.MenuBarCanvas, "MenuBarCanvas" },
         { TagID.OVRInputManager, "OVRInputManager" },

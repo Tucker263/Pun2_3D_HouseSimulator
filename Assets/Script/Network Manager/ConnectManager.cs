@@ -87,6 +87,7 @@ public class ConnectManager : MonoBehaviourPunCallbacks
 
             SaveLoadManager.LoadAll();
             EventTriggerRegister.Register();
+            //RayInteractableRegister.Register();
             Debug.Log("マスタークライアント： データのロードが完了");
         }
         else
