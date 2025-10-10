@@ -43,7 +43,7 @@
 
 
 ## Demo
-![デモ1](Assets/Screenshots/Demo1.png)
+<img src="Assets/Screenshots/Demo1.png" width="600px" />
 
 
 ## 使用技術
