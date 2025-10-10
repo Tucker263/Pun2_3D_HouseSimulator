@@ -44,7 +44,7 @@
 
 ## Demo
 <img src="Assets/Screenshots/Demo1.png" width="600px" />
-
+※家の内部構造なども全て自分で作成しています
 
 ## 使用技術
 __Unity, Pun2__
