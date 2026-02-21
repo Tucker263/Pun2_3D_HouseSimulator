@@ -211,7 +211,7 @@ PUN2分散Ownershipモデル（小〜中規模向け）
 
 ## 研究実績
 - 査読付き国際会議発表<br>15th International Conference on Digital Image Processing and Pattern Recognition (DPPR2025)
-- 修士論文（2026年）
+- 修士論文提出（2026年）
 - 英語論文執筆・英語発表
 
 ---
