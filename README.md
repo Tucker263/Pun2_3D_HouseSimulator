@@ -11,7 +11,7 @@
 
 学部〜修士研究として、研究テーマ（室内外シームレスVR）のもと
 - 研究設計・企画具体化
-- 分散同期設計
+- 分散リアルタイム同期設計
 - 通信・状態同期設計
 - 状態管理・永続化
 - UX・操作設計
@@ -23,7 +23,7 @@
 英語論文執筆については助教の支援を受けつつ遂行。
 
 研究成果は査読付き国際会議  
-International Conference on Digital Image Processing and Pattern Recognition（DPPR2025） 
+15th International Conference on Digital Image Processing and Pattern Recognition（DPPR2025） 
 に採択・発表。
 
 ※3Dエミュレータとして基盤を再構築し、
@@ -210,7 +210,7 @@ PUN2分散Ownershipモデル（小〜中規模向け）
 ---
 
 ## 研究実績
-- 査読付き国際会議発表<br>DPPR2025（オーストラリア・シドニー）
+- 査読付き国際会議発表<br>15th International Conference on Digital Image Processing and Pattern Recognition (DPPR2025)
 - 修士論文（2026年）
 - 英語論文執筆・英語発表
 
