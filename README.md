@@ -1,4 +1,4 @@
-# マルチユーザーVRシミュレーションシステム<br>（リアルタイム協働型VR設計システム）
+# マルチユーザーVRシミュレーションシステム<br>(室内外シームレスVR × リアルタイム協働)
 > 室内と屋外を同時に、複数人でリアルタイム設計できるVRシミュレーション
 
 ---
@@ -55,7 +55,6 @@
 特に、
 - 内見支援
 - デザイナー協働
-- 空間シミュレーション
 
 への応用を想定。
 
@@ -216,13 +215,6 @@ PUN2分散Ownershipモデル（小〜中規模向け）
 
 ---
 
-## 研究実績
-- 査読付き国際会議発表<br>15th International Conference on Digital Image Processing and Pattern Recognition (DPPR2025)
-- 修士論文（2026年）
-- 英語論文執筆・英語発表
-
----
-
 ## デモ
 
 3画面エミュレータによる動作：
@@ -240,5 +232,12 @@ PUN2分散Ownershipモデル（小〜中規模向け）
 
 <img src="Assets/Screenshots/Demo1.png" width="600px" />
 ※家の内部構造なども全て自分で作成しています
+
+---
+
+## 研究実績
+- 査読付き国際会議発表<br>15th International Conference on Digital Image Processing and Pattern Recognition (DPPR2025)
+- 修士論文（2026年）
+- 英語論文執筆・英語発表
 
 ---
