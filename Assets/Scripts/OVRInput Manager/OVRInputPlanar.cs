@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// 移動処理、VR想定
-// アタッチ対象: OVRInput Movingオブジェクト
-public class OVRInputMoving : MonoBehaviour
+// 平面移動
+// アタッチ対象: OVRInput Planarオブジェクト
+public class OVRInputPlanar : MonoBehaviour
 {
     // 移動速度
     [SerializeField]private float _speed = 6f;
@@ -27,16 +27,16 @@ public class OVRInputMoving : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        Locomote();
 
     }
 
 
-    public void Move()
+    public void Locomote()
     {
         Transform objTransform = _cameraRigTramsform;
 
-        //移動処理
+        // 平面移動
         var input = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         _speed = WallCollision.isCollision ? 1f : 6f;
         objTransform.transform.Translate(_speed * Time.deltaTime * input.normalized);

@@ -10,13 +10,11 @@ using UnityEngine;
 
 [RequireComponent(typeof(ObjectNameSynchronizer))]
 [RequireComponent(typeof(EventTriggerSynchronizer))]
-[RequireComponent(typeof(RayInteractableSynchronizer))]
 [RequireComponent(typeof(BaseInfoBatchSynchronizer))]
 public class InitialSynchronizer : MonoBehaviourPunCallbacks
 {
     private ObjectNameSynchronizer _objectNameSynchronizer; // オブジェクトの名前の同期
-    private EventTriggerSynchronizer _eventTriggerSynchronizer; // イベントトリガー登録の同期、VR環境以外で必要
-    private RayInteractableSynchronizer  _rayInteractableSynchronizer; // RayInteractable登録の同期、VR環境で必要
+    private EventTriggerSynchronizer _eventTriggerSynchronizer; // イベントトリガー登録の同期
     private BaseInfoBatchSynchronizer _baseInfoBatchSynchronizer; // オブジェクトbaseInfo型のバッチ同期
 
 
@@ -24,7 +22,6 @@ public class InitialSynchronizer : MonoBehaviourPunCallbacks
     {
         _objectNameSynchronizer = GetComponent<ObjectNameSynchronizer>();
         _eventTriggerSynchronizer = GetComponent<EventTriggerSynchronizer>();
-        _rayInteractableSynchronizer = GetComponent<RayInteractableSynchronizer>();
         _baseInfoBatchSynchronizer = GetComponent<BaseInfoBatchSynchronizer>();
 
     }
@@ -50,9 +47,6 @@ public class InitialSynchronizer : MonoBehaviourPunCallbacks
 
         // イベントトリガー登録の同期
         _eventTriggerSynchronizer.Synchronize(targetPlayer);
-
-        //  RayInteractableの同期
-        //_rayInteractableSynchronizer.Synchronize(targetPlayer);
 
         // BaseInfo型の同期、固定オブジェクト
         foreach (var kv in InitialSyncTagMap.FixedInfoTagMap)

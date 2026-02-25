@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// 視点回転処理、VR想定
+// 視点回転
 // アタッチ対象: OVRInput Rotaterオブジェクト
 public class OVRInputRotater : MonoBehaviour
 {
@@ -36,7 +36,7 @@ public class OVRInputRotater : MonoBehaviour
     {
         float rotationAmount = _speed * Time.deltaTime;
 
-        // 長押しで視点の回転
+        // 長押しで視点回転
         if (Input.GetKey(KeyCode.T))
             _cameraRigTransform.Rotate(0, -rotationAmount, 0);
         if (Input.GetKey(KeyCode.Y))
