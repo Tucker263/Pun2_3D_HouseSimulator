@@ -20,8 +20,8 @@ public class OVRInputVisionToggler : MonoBehaviour
         if (_mainCamera == null) Debug.LogError($"{_mainCameraName}が見つかりませんでした");
         if (_fppCamera == null) Debug.LogError($"{_fppCameraName}が見つかりませんでした");
 
-        _mainCamera.SetActive(false);
-        _fppCamera.SetActive(true);
+        _mainCamera.SetActive(true);
+        _fppCamera.SetActive(false);
 
     }
 
