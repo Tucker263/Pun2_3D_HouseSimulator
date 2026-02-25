@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-// 移動手段をワープに切り替えるクラス
+// 移動方式をスムーズ移動に切り替えるクラス
 // アタッチ対象: UIのボタン
-public class WarpModeChanger : MonoBehaviour
+public class SmoothModeChanger : MonoBehaviour
 {
 
-    public void OnClickChangeWarpMode()
+    public void OnClickChangeSmoothMode()
     {
-        Debug.Log("ワープ移動に切り替わりました");
+        Debug.Log("スムーズ移動に切り替わりました");
 
         //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
         EventSystem.current.SetSelectedGameObject(null);

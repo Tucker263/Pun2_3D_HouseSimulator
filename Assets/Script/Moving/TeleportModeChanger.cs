@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-// 移動手段をスティックに切り替えるクラス
+// 移動方式をテレポート移動に切り替えるクラス
 // アタッチ対象: UIのボタン
-public class StickModeChanger : MonoBehaviour
+public class TeleportModeChanger : MonoBehaviour
 {
 
-    public void OnClickChangeStickMode()
+    public void OnClickChangeTeleportMode()
     {
-        Debug.Log("スティック移動に切り替わりました");
+        Debug.Log("テレポート移動に切り替わりました");
 
         //selected状態を解除,この処理がないとメニューバーの表示で二重で動く
         EventSystem.current.SetSelectedGameObject(null);
