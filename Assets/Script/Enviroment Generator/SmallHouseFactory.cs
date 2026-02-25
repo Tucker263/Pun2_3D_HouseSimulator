@@ -7,7 +7,7 @@ using UnityEngine;
 // SmallHouseを生成するファクトリークラス
 public static class SmallHouseFactory
 {
-    private const string SmallHousePrefabName = "Buildings/SmallHouse"; // プレハブ名
+    private const string SmallHousePrefabName = "SmallHouse"; // プレハブ名
 
 
     public static GameObject Create(Vector3 position = default, Quaternion rotation = default)

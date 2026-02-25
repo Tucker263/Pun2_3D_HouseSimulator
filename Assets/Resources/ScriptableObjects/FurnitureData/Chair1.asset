@@ -16,5 +16,5 @@ MonoBehaviour:
   name: Chair1
   displayName: Chair1
   icon: {fileID: 21300000, guid: e06065e11629fa0489e312cf55c38593, type: 3}
-  photonResourcePath: Furniture/Chair1
+  photonResourcePath: Chair1
   subCategory: Chair

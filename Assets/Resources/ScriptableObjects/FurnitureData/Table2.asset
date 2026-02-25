@@ -16,5 +16,5 @@ MonoBehaviour:
   name: Table2
   displayName: Table2
   icon: {fileID: 21300000, guid: 9bfd15b4e2d6f6744aa8c18b8097224b, type: 3}
-  photonResourcePath: Furniture/Table2
+  photonResourcePath: Table2
   subCategory: Table

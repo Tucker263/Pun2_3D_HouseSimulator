@@ -7,7 +7,7 @@ using UnityEngine;
 // Houseを生成するファクトリークラス
 public static class HouseFactory
 {
-    private const string HousePrefabName = "Buildings/House"; // プレハブ名
+    private const string HousePrefabName = "House"; // プレハブ名
 
 
     public static GameObject Create(Vector3 position = default, Quaternion rotation = default)
