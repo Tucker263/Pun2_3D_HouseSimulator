@@ -18,7 +18,7 @@ public class SpawnedObjectDistanceGrab : MonoBehaviour
     {
         _cameraRig = GameObject.FindWithTag(Tags.Get(TagID.CameraRig));
         if (_cameraRig == null) Debug.LogError($"{Tags.Get(TagID.CameraRig)}が見つかりませんでした");
-
+        
         _fppCamera = _cameraRig.transform.Find(_fppCameraName).gameObject;
         if (_fppCamera == null) Debug.LogError($"{_fppCameraName}が見つかりませんでした");
     }
@@ -28,8 +28,8 @@ public class SpawnedObjectDistanceGrab : MonoBehaviour
     public void Grab()
     {
         Vector3 mousePos = Input.mousePosition;
-        // 奥行指定、FPPカメラから5ユニット先
-        mousePos.z = _fppCamera.activeSelf ? 5.0f : 20.0f;
+        // 奥行指定、FPPカメラから4.5ユニット先
+        mousePos.z = _fppCamera.activeSelf ? 4.5f : 20.0f;
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         transform.position = worldPos;
 

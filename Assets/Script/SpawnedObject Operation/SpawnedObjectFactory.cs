@@ -50,7 +50,7 @@ public static class SpawnedObjectFactory
 
         Vector3 position = new Vector3(
             cameraRigTransform.position.x + offsetX,
-            cameraRigTransform.position.y + 3,
+            cameraRigTransform.position.y + 1,
             cameraRigTransform.position.z + offsetZ
         );
 
