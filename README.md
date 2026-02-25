@@ -162,8 +162,7 @@
 
 - 単一責任原則を意識（SRP）
 - UI層とロジック層の分離
-- Factoryパターン採用
-- ScriptableObject活用
+- 簡易的なFactoryパターン
 - 共通処理抽象化（セーブ・同期基底クラス）
 - null安全設計
 - 疎結合アーキテクチャ
@@ -184,6 +183,7 @@ PUN2分散Ownershipモデル（小〜中規模向け）
 - Dedicated Server構成
 - サーバ主導状態管理
 - クラウドDB連携(セッションデータをクラウド化)
+- ScriptableObject活用(家具数などの増加)
 - 負荷試験設計
 
 ---
