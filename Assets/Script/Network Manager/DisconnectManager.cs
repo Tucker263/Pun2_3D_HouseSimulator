@@ -58,7 +58,6 @@ public class DisconnectManager : MonoBehaviourPunCallbacks
         DescendantFinder.ClearCache();
 
         // Resource内の情報のキャッシュを削除
-        SpawnedObjectDataCache.ClearCache();
         LightingCache.ClearCache();
         MaterialCache.ClearCache();
 

@@ -19,8 +19,7 @@ public class ConnectManager : MonoBehaviourPunCallbacks
     {
         _sceneInitializer = GetComponent<SceneInitializer>();
 
-        // Resourcesファルダ内のキャッシュ情報を初期化(ScriptableObject、ライティング、マテリアル)
-        SpawnedObjectDataCache.Initialize();
+        // Resourcesファルダ内のキャッシュ情報を初期化(ライティング、マテリアル)
         LightingCache.Initialize();
         MaterialCache.Initialize();
     }

@@ -25,7 +25,7 @@ public class UISpawnedObjectFactory : MonoBehaviour
     }
 
 
-    public void OnClickCreate(SpawnedObjectData spawnedObjectData)
+    public void OnClickCreate(string photonResourcePath)
     {
         if(_spawnedObjectEventSynchronizer == null) Initialize();
 
@@ -33,7 +33,7 @@ public class UISpawnedObjectFactory : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
 
         // オブジェクトの生成
-        GameObject obj = SpawnedObjectFactory.Create(spawnedObjectData);
+        GameObject obj = SpawnedObjectFactory.Create(photonResourcePath);
 
         // ローカル反映、イベント登録
         _spawnedObjectEventSynchronizer.SynchronizeLocal(obj);

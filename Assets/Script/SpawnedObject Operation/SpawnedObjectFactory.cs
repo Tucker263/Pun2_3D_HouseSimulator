@@ -12,11 +12,11 @@ public static class SpawnedObjectFactory
     private static float _spawnDistance = 3.0f;
 
 
-    public static GameObject Create(SpawnedObjectData spawnedObjectData)
+    public static GameObject Create(string photonResourcePath)
     {
-        if (spawnedObjectData == null)
+        if (photonResourcePath == null)
         {
-            Debug.LogError("SpawnedObjectData が null です");
+            Debug.LogError("photonResourcePath が null です");
             return null;
         }
 
@@ -32,7 +32,7 @@ public static class SpawnedObjectFactory
         // 自分の正面にオブジェクトの生成を指定
         Vector3 position = GetFrontSpawnPosition(cameraRigTransform);
         // オブジェクトの生成
-        GameObject obj = PhotonNetwork.Instantiate(spawnedObjectData.photonResourcePath, position, Quaternion.identity);
+        GameObject obj = PhotonNetwork.Instantiate(photonResourcePath, position, Quaternion.identity);
         // オブジェクトをy軸だけ自分方向に向ける
         FaceCameraYOnly(obj, cameraRigTransform);
 
