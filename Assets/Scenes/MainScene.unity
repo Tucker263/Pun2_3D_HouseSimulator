@@ -8438,112 +8438,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5513372217291084159, guid: ac978f16bc4a5e54bb39bc04fc76b166, type: 3}
   m_PrefabInstance: {fileID: 710219198}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &725541308
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 890533280}
-    m_Modifications:
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 932471521023531574, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7000962642231780189, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-      propertyPath: m_Name
-      value: Btn_SpawnedObject
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
---- !u!224 &725541309 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 329628533131118913, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
-  m_PrefabInstance: {fileID: 725541308}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &729473820
 GameObject:
   m_ObjectHideFlags: 0
@@ -12165,7 +12059,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1138382838}
-  - {fileID: 725541309}
   m_Father: {fileID: 1139932904}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -12187,6 +12080,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _categoryKey: FurnitureData
   _buttonPrefab: {fileID: 7000962642231780189, guid: 0d8da5717efbf98469b88931f4c2ebd9, type: 3}
+  _spawnedObjectDataList: []
+  _contentParent: {fileID: 0}
+  _autoContentSize: {fileID: 0}
 --- !u!114 &890533282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16005,13 +15901,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1138382842}
         m_TargetAssemblyTypeName: UISpawnedObjectFactory, Assembly-CSharp
         m_MethodName: OnClickCreate
-        m_Mode: 2
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: SpawnedObjectData, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: chair1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1138382840
